@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/</loc>
-<lastmod>2021-01-04T13:58:29-00:00</lastmod>
+<lastmod>2021-01-04T13:59:54-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/.html</loc>
+<lastmod>2021-01-04T13:59:45+09:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -35,6 +42,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://1ut.github.io/FirstPost5.html</loc>
 <lastmod>2021-01-03T22:08:55+09:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/category/misc.html</loc>
+<lastmod>2021-01-04T13:59:45+09:19</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -82,7 +96,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/author/1ut.html</loc>
-<lastmod>2021-01-03T22:08:55+09:19</lastmod>
+<lastmod>2021-01-04T13:59:45+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
