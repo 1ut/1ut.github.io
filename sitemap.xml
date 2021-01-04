@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/</loc>
-<lastmod>2021-01-04T14:01:03-00:00</lastmod>
+<lastmod>2021-01-04T14:02:10-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tesutesu.html</loc>
+<lastmod>2021-01-04T14:02:07+09:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -60,6 +67,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://1ut.github.io/category/test.html</loc>
+<lastmod>2021-01-04T14:02:07+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://1ut.github.io/category/test5-test5b.html</loc>
 <lastmod>2021-01-03T22:08:55+09:19</lastmod>
 <changefreq>daily</changefreq>
@@ -69,6 +83,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://1ut.github.io/category/tesuto.html</loc>
 <lastmod>2021-01-04T14:00:59+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/test.html</loc>
+<lastmod>2021-01-04T14:02:07+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -103,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/author/1ut.html</loc>
-<lastmod>2021-01-04T14:00:59+09:19</lastmod>
+<lastmod>2021-01-04T14:02:07+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
