@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-05T03:42:45+09:00</updated><entry><title>oakbridgeでgromacs</title><link href="/oakbridgedegromacs.html" rel="alternate"></link><published>2021-01-05T03:42:45+09:00</published><updated>2021-01-05T03:42:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-05:/oakbridgedegromacs.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-19T01:18:37+09:00</updated><entry><title>タンパク質の機能予測ができるサイト</title><link href="/tanpakuzhi-noji-neng-yu-ce-gadekirusaito.html" rel="alternate"></link><published>2021-01-19T01:18:37+09:00</published><updated>2021-01-19T01:18:37+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-19:/tanpakuzhi-noji-neng-yu-ce-gadekirusaito.html</id><content type="html"></content><category term="ソフト"></category></entry><entry><title>oakbridgeでgromacs</title><link href="/oakbridgedegromacs.html" rel="alternate"></link><published>2021-01-05T03:42:45+09:00</published><updated>2021-01-05T03:42:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-05:/oakbridgedegromacs.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sshfs oakbridge:サーバーのディレクトリ  クライアントのディレクトリ&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -131,26 +131,4 @@
 &lt;ul&gt;
 &lt;li&gt;回転&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;二本指で平行移動、二本指で回転、&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="chimera"></category><category term="操作"></category><category term="ズーム"></category><category term="拡大"></category><category term="縮小"></category></entry><entry><title>テスてす</title><link href="/tesutesu.html" rel="alternate"></link><published>2021-01-04T18:17:20+09:00</published><updated>2021-01-04T18:17:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/tesutesu.html</id><summary type="html"></summary><content type="html">&lt;p&gt;てすてす&lt;/p&gt;</content><category term="test"></category><category term="test"></category></entry><entry><title>test3</title><link href="/test3.html" rel="alternate"></link><published>2021-01-04T18:17:19+09:00</published><updated>2021-01-04T18:17:19+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/test3.html</id><summary type="html">&lt;p&gt;test&lt;/p&gt;</summary><content type="html">&lt;p&gt;test3&lt;/p&gt;</content><category term="テスト"></category><category term="テスト"></category><category term="投稿"></category></entry><entry><title></title><link href="/.html" rel="alternate"></link><published>2021-01-04T18:17:18+09:00</published><updated>2021-01-04T18:17:18+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/.html</id><content type="html"></content><category term="misc"></category></entry><entry><title>test</title><link href="/FirstPost.html" rel="alternate"></link><published>2020-02-24T00:00:00+09:00</published><updated>2021-01-04T18:17:19+09:00</updated><author><name>1ut</name></author><id>tag:None,2020-02-24:/FirstPost.html</id><summary type="html">&lt;p&gt;test&lt;/p&gt;</summary><content type="html">&lt;p&gt;test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test
-test&lt;/p&gt;</content><category term="テスト"></category><category term="テスト"></category><category term="投稿"></category></entry><entry><title>test</title><link href="/FirstPost2.html" rel="alternate"></link><published>2020-02-24T00:00:00+09:00</published><updated>2021-01-04T18:17:19+09:00</updated><author><name>1ut</name></author><id>tag:None,2020-02-24:/FirstPost2.html</id><summary type="html">&lt;p&gt;test&lt;/p&gt;</summary><content type="html">&lt;h1&gt;test&lt;/h1&gt;</content><category term="テスト"></category><category term="テスト"></category><category term="投稿"></category></entry><entry><title>test4</title><link href="/FirstPost4.html" rel="alternate"></link><published>2020-02-24T00:00:00+09:00</published><updated>2021-01-04T18:17:19+09:00</updated><author><name>1ut</name></author><id>tag:None,2020-02-24:/FirstPost4.html</id><summary type="html">&lt;p&gt;test&lt;/p&gt;</summary><content type="html">&lt;p&gt;test4&lt;/p&gt;</content><category term="テスト"></category><category term="テスト"></category><category term="投稿"></category></entry><entry><title>test5</title><link href="/FirstPost5.html" rel="alternate"></link><published>2020-02-24T00:00:00+09:00</published><updated>2021-01-04T18:17:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2020-02-24:/FirstPost5.html</id><summary type="html">&lt;p&gt;test5&lt;/p&gt;</summary><content type="html"></content><category term="test5, test5b"></category><category term="test5"></category><category term="test5a"></category></entry></feed>
+&lt;p&gt;二本指で平行移動、二本指で回転、&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="chimera"></category><category term="操作"></category><category term="ズーム"></category><category term="拡大"></category><category term="縮小"></category></entry><entry><title></title><link href="/.html" rel="alternate"></link><published>2021-01-04T18:17:18+09:00</published><updated>2021-01-04T18:17:18+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/.html</id><content type="html"></content><category term="misc"></category></entry></feed>
