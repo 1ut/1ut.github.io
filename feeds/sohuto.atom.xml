@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-04T23:14:09+09:00</updated><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-04T23:14:09+09:00</published><updated>2021-01-04T23:14:09+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-05T03:42:45+09:00</updated><entry><title>oakbridgeでgromacs</title><link href="/oakbridgedegromacs.html" rel="alternate"></link><published>2021-01-05T03:42:45+09:00</published><updated>2021-01-05T03:42:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-05:/oakbridgedegromacs.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sshfs oakbridge:サーバーのディレクトリ  クライアントのディレクトリ&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;gromacsのロード&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module load gromacs/2020.4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;水分子でチュートリアル&lt;/h1&gt;
+&lt;p&gt;以下の方法に従って行った&lt;/p&gt;
+&lt;p&gt;https://www.hpc.co.jp/tech-blog/2020/04/14/gromacs-tutorial-watermd-intro/&lt;/p&gt;
+&lt;p&gt;oakbridgeで実行するときはgmxではcommand not foundとなるのでgmx_mpiに置き換えて実行する。&lt;/p&gt;
+&lt;p&gt;nvtのmd実行速度&lt;/p&gt;
+&lt;p&gt;cpu: Intel® Xeon Platinum 8280 2.7GHz &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;               Core t (s)   Wall t (s)        (%)&lt;/span&gt;
+&lt;span class="err"&gt;       Time:     1109.971       19.821     5599.9&lt;/span&gt;
+&lt;span class="err"&gt;                 (ns/day)    (hour/ns)&lt;/span&gt;
+&lt;span class="c"&gt;Performance:      217.952        0.110&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;samplingのmd実行速度&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;               Core t (s)   Wall t (s)        (%)&lt;/span&gt;
+&lt;span class="err"&gt;       Time:     2838.425       50.686     5600.0&lt;/span&gt;
+&lt;span class="err"&gt;                 (ns/day)    (hour/ns)&lt;/span&gt;
+&lt;span class="c"&gt;Performance:      170.462        0.141&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;VMDのインストール&lt;/h1&gt;
+&lt;p&gt;homebrewになかったのでcondaで入れようと思ったがlinuxのみ対応だった&lt;/p&gt;
+&lt;p&gt;ので&lt;/p&gt;
+&lt;p&gt;https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD&lt;/p&gt;
+&lt;p&gt;からインストール&lt;/p&gt;
+&lt;p&gt;high sierra(10.13)でも&lt;/p&gt;
+&lt;p&gt;MacOS 10.15, x86_64 (64-bit Intel x86_64) (Apple MacOS-X 10.15 or later)&lt;/p&gt;
+&lt;p&gt;が動いた。&lt;/p&gt;
+&lt;h1&gt;VMD での.mp4動画作成&lt;/h1&gt;
+&lt;p&gt;出来あがる動画はこんな感じ&lt;/p&gt;
+&lt;p&gt;https://youtu.be/8AkwZiUOs3c&lt;/p&gt;
+&lt;p&gt;ウインドウサイズに即した大きさのmp4スタック動画ができるのでウインドウサイズに注意。&lt;/p&gt;
+&lt;p&gt;初期座標とtrackdataをを読み込んだVMDで&lt;/p&gt;
+&lt;p&gt;Extensions -&amp;gt; Visualization -&amp;gt; Movie Maker&lt;/p&gt;
+&lt;p&gt;を選択、&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="images/2021-01-05-02-29-01.png"&gt;&lt;/p&gt;
+&lt;p&gt;Formatタブ -&amp;gt; JPEG frames (ImageMagick)&lt;/p&gt;
+&lt;p&gt;を選択後&lt;/p&gt;
+&lt;p&gt;Make Movie&lt;/p&gt;
+&lt;p&gt;ボタンを押すと&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;/var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;に&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;final.*.jpg&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;という画像ができた。。&lt;/p&gt;
+&lt;p&gt;bashで以下のコマンドを打ちjpgからmp4を生成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;convert -delay 6 -quality 95 /var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/final*jpg movie.mp4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;しようと思ったがエラー&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;convert&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;delegate&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ffmpeg&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nostdin&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;%M%%d.pam&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;plays&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;%u.%m&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;%u&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="sr"&gt;/delegate.c/InvokeDelegate/&lt;/span&gt;&lt;span class="mi"&gt;1898&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;が出てできない。ググると ffmpegをインストールしてimagemagicを再インストールする必要があるということ。&lt;/p&gt;
+&lt;p&gt;https://serverfault.com/questions/748703/converting-jpg-to-mpg-fails-in-convert-imagemagick&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew uninstall imagemagick&lt;/span&gt;
+&lt;span class="err"&gt;brew install ffmpeg&lt;/span&gt;
+&lt;span class="err"&gt;brew install imagemagick&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;その後、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;convert -delay 6 -quality 95 /var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/final*jpg movie.mp4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;で作成　&lt;/p&gt;
+&lt;p&gt;ソース:&lt;/p&gt;
+&lt;p&gt;https://amberhub.chpc.utah.edu/making-movies/&lt;/p&gt;
+&lt;h1&gt;chimeraでのgromacs trrによるMDシミュレーションn可視化&lt;/h1&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="oakbridge"></category><category term="gromacs"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-05T00:17:57+09:00</published><updated>2021-01-05T00:17:57+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-05:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
@@ -21,13 +98,23 @@
 &lt;ul&gt;
 &lt;li&gt;ソース&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>oakbridgeでgromacs</title><link href="/oakbridgedegromacs.html" rel="alternate"></link><published>2021-01-04T22:28:51+09:00</published><updated>2021-01-04T22:28:51+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/oakbridgedegromacs.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sshfs oakbridge:サーバーのディレクトリ  クライアントのディレクトリ&lt;/span&gt;
+&lt;p&gt;xmgraceとコマンドを打ってもXquarzが起動せず&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Can&amp;#39;t open display Failed initializing GUI, exiting&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h1&gt;gromacsのロード&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module load gromacs/2020.4&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="oakbridge"></category><category term="gromacs"></category></entry><entry><title>macでucsf chimeraを使う</title><link href="/macdeucsf-chimerawoshi-u.html" rel="alternate"></link><published>2021-01-04T18:44:45+09:00</published><updated>2021-01-04T18:44:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/macdeucsf-chimerawoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;UCSF chimeraとは&lt;/h1&gt;
+&lt;p&gt;というエラーが出ており、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DISPLAY=:0.0 xmgrace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;と変数DISPLAYを指定しても変わらなかった。&lt;/p&gt;
+&lt;p&gt;対処法を調べていたらこの投稿がヒットし、上のような解決策が見つかった。&lt;/p&gt;
+&lt;p&gt;https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/&lt;/p&gt;
+&lt;p&gt;公式には、&lt;/p&gt;
+&lt;p&gt;https://www.xquartz.org/FAQs.html&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Run the following to prevent launchd from setting $DISPLAY and creating its socket.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;と説明されており、launchdにDISPLAYとsocketを勝手に設定されるのを防ぐ目的があるとされている。&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>macでucsf chimeraを使う</title><link href="/macdeucsf-chimerawoshi-u.html" rel="alternate"></link><published>2021-01-04T18:44:45+09:00</published><updated>2021-01-04T18:44:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/macdeucsf-chimerawoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;UCSF chimeraとは&lt;/h1&gt;
 &lt;h1&gt;macでの操作方法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;ソース&lt;/li&gt;

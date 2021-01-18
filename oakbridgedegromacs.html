@@ -119,8 +119,8 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2021-01-04T22:28:51+09:00">
-        <i class="icon-calendar"></i>Mon 04 January 2021
+<abbr class="published" title="2021-01-05T03:42:45+09:00">
+        <i class="icon-calendar"></i>Tue 05 January 2021
 </abbr>
 <span class="label">By</span>
 <a href="/author/1ut.html"><i class="icon-user"></i>1ut</a>
@@ -140,6 +140,77 @@
 <h1>gromacsのロード</h1>
 <div class="highlight"><pre><span></span><code><span class="err">module load gromacs/2020.4</span>
 </code></pre></div>
+
+<h1>水分子でチュートリアル</h1>
+<p>以下の方法に従って行った</p>
+<p>https://www.hpc.co.jp/tech-blog/2020/04/14/gromacs-tutorial-watermd-intro/</p>
+<p>oakbridgeで実行するときはgmxではcommand not foundとなるのでgmx_mpiに置き換えて実行する。</p>
+<p>nvtのmd実行速度</p>
+<p>cpu: Intel® Xeon Platinum 8280 2.7GHz </p>
+<div class="highlight"><pre><span></span><code><span class="err">               Core t (s)   Wall t (s)        (%)</span>
+<span class="err">       Time:     1109.971       19.821     5599.9</span>
+<span class="err">                 (ns/day)    (hour/ns)</span>
+<span class="c">Performance:      217.952        0.110</span>
+</code></pre></div>
+
+<p>samplingのmd実行速度</p>
+<div class="highlight"><pre><span></span><code><span class="err">               Core t (s)   Wall t (s)        (%)</span>
+<span class="err">       Time:     2838.425       50.686     5600.0</span>
+<span class="err">                 (ns/day)    (hour/ns)</span>
+<span class="c">Performance:      170.462        0.141</span>
+</code></pre></div>
+
+<h1>VMDのインストール</h1>
+<p>homebrewになかったのでcondaで入れようと思ったがlinuxのみ対応だった</p>
+<p>ので</p>
+<p>https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD</p>
+<p>からインストール</p>
+<p>high sierra(10.13)でも</p>
+<p>MacOS 10.15, x86_64 (64-bit Intel x86_64) (Apple MacOS-X 10.15 or later)</p>
+<p>が動いた。</p>
+<h1>VMD での.mp4動画作成</h1>
+<p>出来あがる動画はこんな感じ</p>
+<p>https://youtu.be/8AkwZiUOs3c</p>
+<p>ウインドウサイズに即した大きさのmp4スタック動画ができるのでウインドウサイズに注意。</p>
+<p>初期座標とtrackdataをを読み込んだVMDで</p>
+<p>Extensions -&gt; Visualization -&gt; Movie Maker</p>
+<p>を選択、</p>
+<p><img alt="" src="images/2021-01-05-02-29-01.png"></p>
+<p>Formatタブ -&gt; JPEG frames (ImageMagick)</p>
+<p>を選択後</p>
+<p>Make Movie</p>
+<p>ボタンを押すと</p>
+<div class="highlight"><pre><span></span><code><span class="err">/var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/</span>
+</code></pre></div>
+
+<p>に</p>
+<div class="highlight"><pre><span></span><code><span class="err">final.*.jpg</span>
+</code></pre></div>
+
+<p>という画像ができた。。</p>
+<p>bashで以下のコマンドを打ちjpgからmp4を生成</p>
+<div class="highlight"><pre><span></span><code><span class="err">convert -delay 6 -quality 95 /var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/final*jpg movie.mp4</span>
+</code></pre></div>
+
+<p>しようと思ったがエラー</p>
+<div class="highlight"><pre><span></span><code><span class="n">convert</span><span class="o">:</span> <span class="n">delegate</span> <span class="n">failed</span> <span class="err">`</span><span class="s1">&#39;ffmpeg&#39;</span> <span class="o">-</span><span class="n">nostdin</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;%M%%d.pam&#39;</span> <span class="o">-</span><span class="n">plays</span> <span class="o">%</span><span class="n">I</span> <span class="s1">&#39;%u.%m&#39;</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="s1">&#39;%u&#39;</span><span class="err">&#39;</span> <span class="err">@</span> <span class="n">error</span><span class="sr">/delegate.c/InvokeDelegate/</span><span class="mi">1898</span>
+</code></pre></div>
+
+<p>が出てできない。ググると ffmpegをインストールしてimagemagicを再インストールする必要があるということ。</p>
+<p>https://serverfault.com/questions/748703/converting-jpg-to-mpg-fails-in-convert-imagemagick</p>
+<div class="highlight"><pre><span></span><code><span class="err">brew uninstall imagemagick</span>
+<span class="err">brew install ffmpeg</span>
+<span class="err">brew install imagemagick</span>
+</code></pre></div>
+
+<p>その後、</p>
+<div class="highlight"><pre><span></span><code><span class="err">convert -delay 6 -quality 95 /var/folders/54/23bhwbzj7kn8t3fsky9xs0l80000gn/T/final*jpg movie.mp4</span>
+</code></pre></div>
+
+<p>で作成　</p>
+<p>ソース:</p>
+<p>https://amberhub.chpc.utah.edu/making-movies/</p>
+<h1>chimeraでのgromacs trrによるMDシミュレーションn可視化</h1>
                 </div><!-- /.entry-content -->
         </article>
 </section>
@@ -179,92 +250,92 @@
 </li>
 
 <li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>, <pelican.contents.Article object at 0x111179bd0>, <pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d403e50>, <pelican.contents.Article object at 0x10d403cd0>, <pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/mac.html">
         <i class="icon-tag icon-large"></i>mac
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>]">
-    <a href="/tag/xmgrace.html">
-        <i class="icon-tag icon-large"></i>xmgrace
-    </a>
-</li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>]">
-    <a href="/tag/grace.html">
-        <i class="icon-tag icon-large"></i>grace
-    </a>
-</li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>]">
-    <a href="/tag/x11.html">
-        <i class="icon-tag icon-large"></i>x11
-    </a>
-</li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>]">
-    <a href="/tag/xwindow.html">
-        <i class="icon-tag icon-large"></i>xwindow
-    </a>
-</li>
-<li class="tag-[<pelican.contents.Article object at 0x1103590d0>]">
-    <a href="/tag/xquartz.html">
-        <i class="icon-tag icon-large"></i>xquartz
-    </a>
-</li>
-<li class="tag-[<pelican.contents.Article object at 0x111179bd0>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d403e50>]">
     <a href="/tag/oakbridge.html">
         <i class="icon-tag icon-large"></i>oakbridge
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x111179bd0>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d403e50>]">
     <a href="/tag/gromacs.html">
         <i class="icon-tag icon-large"></i>gromacs
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d403cd0>]">
+    <a href="/tag/xmgrace.html">
+        <i class="icon-tag icon-large"></i>xmgrace
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d403cd0>]">
+    <a href="/tag/grace.html">
+        <i class="icon-tag icon-large"></i>grace
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d403cd0>]">
+    <a href="/tag/x11.html">
+        <i class="icon-tag icon-large"></i>x11
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d403cd0>]">
+    <a href="/tag/xwindow.html">
+        <i class="icon-tag icon-large"></i>xwindow
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d403cd0>]">
+    <a href="/tag/xquartz.html">
+        <i class="icon-tag icon-large"></i>xquartz
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/chimera.html">
         <i class="icon-tag icon-large"></i>chimera
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/cao-zuo.html">
         <i class="icon-tag icon-large"></i>操作
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/zumu.html">
         <i class="icon-tag icon-large"></i>ズーム
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/kuo-da.html">
         <i class="icon-tag icon-large"></i>拡大
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f77f110>]">
+<li class="tag-[<pelican.contents.Article object at 0x10ee17790>]">
     <a href="/tag/suo-xiao.html">
         <i class="icon-tag icon-large"></i>縮小
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x111172d10>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d3fdf90>]">
     <a href="/tag/test.html">
         <i class="icon-tag icon-large"></i>test
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x11117e410>, <pelican.contents.Article object at 0x111179a90>, <pelican.contents.Article object at 0x10e791c50>, <pelican.contents.Article object at 0x111183d50>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d3fd910>, <pelican.contents.Article object at 0x10d3f3e90>, <pelican.contents.Article object at 0x10c4a8bd0>, <pelican.contents.Article object at 0x10d3f1e50>]">
     <a href="/tag/tesuto.html">
         <i class="icon-tag icon-large"></i>テスト
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x11117e410>, <pelican.contents.Article object at 0x111179a90>, <pelican.contents.Article object at 0x10e791c50>, <pelican.contents.Article object at 0x111183d50>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d3fd910>, <pelican.contents.Article object at 0x10d3f3e90>, <pelican.contents.Article object at 0x10c4a8bd0>, <pelican.contents.Article object at 0x10d3f1e50>]">
     <a href="/tag/tou-gao.html">
         <i class="icon-tag icon-large"></i>投稿
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f75e710>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d3fdfd0>]">
     <a href="/tag/test5.html">
         <i class="icon-tag icon-large"></i>test5
     </a>
 </li>
-<li class="tag-[<pelican.contents.Article object at 0x10f75e710>]">
+<li class="tag-[<pelican.contents.Article object at 0x10d3fdfd0>]">
     <a href="/tag/test5a.html">
         <i class="icon-tag icon-large"></i>test5a
     </a>
