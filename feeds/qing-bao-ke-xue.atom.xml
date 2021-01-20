@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - 情報科学</title><link href="/" rel="alternate"></link><link href="/feeds/qing-bao-ke-xue.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:51:30+09:00</updated><entry><title>内側アルゴリズムとは</title><link href="/nei-ce-arugorizumutoha.html" rel="alternate"></link><published>2021-01-20T15:51:30+09:00</published><updated>2021-01-20T15:51:30+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/nei-ce-arugorizumutoha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;内側アルゴリズムとは&lt;/h1&gt;
+&lt;p&gt;チョムスキー標準形（W_v -&amp;gt; W_x W_y or W_v -&amp;gt; a）の確率文脈自由文法（Stochastic context-free grammar, SCFG)&lt;/p&gt;
+&lt;p&gt;HMMの前向き、内向きアルゴリズムに対応するアルゴリズム。&lt;/p&gt;
+&lt;p&gt;ここで、以下のように確率を定義する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;W_v -&amp;gt; W_x W_y に遷移する確率
+t_v(x, y)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;W_v -&amp;gt; aと出力する確率
+e_v(a)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部分文字列x_i...x_jがW_vを根に持つ確率
+α(i, j, v)
+内側アルゴリズムはこれを&lt;strong&gt;全てのi,j,vに対して&lt;/strong&gt;算出する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここで長さLの文字列を考え、Wの総数をMとする&lt;/p&gt;
+&lt;p&gt;部分文字列x_i...x_jをW_yとW_zを根に持つ部分に分ける。
+分け目の数字をiとjの間の数字kであるとすると文字列xi...xkとxk+1...xjに分かれる。&lt;/p&gt;
+&lt;p&gt;この時求めたい確率（x_i...x_jがW＿vを根に持つ確率）は、上で定義したαを用いて以下のように表される式をすべてのk, y, zに対して足し合わせたものである。&lt;/p&gt;
+&lt;p&gt;α(i, k, y) * α(k+1, j, z) * t_v(y, z)&lt;/p&gt;
+&lt;p&gt;ここでα(i, k, y)は配列x_i...x_kがW_yを根に持つ確率、α(k+1, j, z)は配列x_k+1...x_jがW_zを根に持つ確率、t_v(y, z)はW_v -&amp;gt; W_y W_zに遷移する確率である。&lt;/p&gt;
+&lt;p&gt;内側アルゴリズムは上の式を全てのi,j,vに対して計算するものである。&lt;/p&gt;
+&lt;p&gt;以下の図に以上の手順をまとめてある。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="https://i.imgur.com/30BlLKB.jpg?1"&gt;&lt;/p&gt;
+&lt;h1&gt;外側アルゴリズムとは&lt;/h1&gt;
+&lt;p&gt;以下の画像参照&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="https://i.imgur.com/ylbQ0e8.jpg?1"&gt;&lt;/p&gt;</content><category term="情報科学"></category><category term="内側アルゴリズム"></category><category term="チョムスキー標準形"></category></entry><entry><title>変形文法とは</title><link href="/bian-xing-wen-fa-toha.html" rel="alternate"></link><published>2021-01-20T15:51:06+09:00</published><updated>2021-01-20T15:51:06+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/bian-xing-wen-fa-toha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;変形文法（生成文法）&lt;/h1&gt;
+&lt;h2&gt;変形文法の概要&lt;/h2&gt;
+&lt;p&gt;文章を生成するから生成文法とも呼ばれる。&lt;/p&gt;
+&lt;p&gt;チョムスキーにより提唱された、「文章が文法的に正しいかどうか判断」「構文解析」するアルゴリズム（形式機械）。&lt;/p&gt;
+&lt;p&gt;言語の制約を少ない規則で再現することを目的にしている。&lt;/p&gt;
+&lt;h2&gt;生物学（バイオインフォマティクス）との関わり&lt;/h2&gt;
+&lt;p&gt;正規文法を確率化した隠れマルコフモデルはDNA配列のアラインメントなどに有用
+文脈自由文法を確率化した確率文脈自由文法はRNAの構造解析などに有用&lt;/p&gt;
+&lt;h2&gt;変形文法の定義&lt;/h2&gt;
+&lt;p&gt;「記号」と「記号から記号への置き換え規則」から成る。
+記号は「非終端記号」（実際の文章には現れない抽象的なものを仮定。書き換えられる。）と「終端記号」（文章として現れる記号。文字や単語、音節。書き換えられない。）から成る。&lt;/p&gt;
+&lt;h3&gt;変形文法の例&lt;/h3&gt;
+&lt;p&gt;(S: 非終端記号、a,b: 終端記号、ε: 非終端記号の終了)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;aとbから成る「任意の」文字列を生成する変形文法
+S -&amp;gt; aS, S -&amp;gt; bS, S -&amp;gt; ε&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この規則に従えば全ての組み合わせのaとbから成る文字列を生成可能。&lt;/p&gt;
+&lt;h1&gt;置き換え規則の制限の分類（チョムスキー階層）&lt;/h1&gt;
+&lt;p&gt;&lt;a href="チョムスキー階層.md"&gt;チョムスキー階層&lt;/a&gt;　を参照&lt;/p&gt;
+&lt;h1&gt;正規文法&lt;/h1&gt;
+&lt;p&gt;S -&amp;gt; aS, S -&amp;gt; a
+(S: 非終端記号、a: 終端記号)&lt;/p&gt;
+&lt;p&gt;&lt;a href="正規文法.md"&gt;正規文法&lt;/a&gt;　を参照&lt;/p&gt;
+&lt;h1&gt;文脈自由文法&lt;/h1&gt;
+&lt;p&gt;S -&amp;gt; 任意のS, aの組み合わせ
+(S: 非終端記号、a: 終端記号)&lt;/p&gt;
+&lt;p&gt;&lt;a href="文脈自由文法.md"&gt;文脈自由文法&lt;/a&gt;を参照&lt;/p&gt;
+&lt;h1&gt;確率文法&lt;/h1&gt;
+&lt;p&gt;上記の文法の遷移に確情情報を付加。&lt;/p&gt;
+&lt;p&gt;&lt;a href="確率文法.md"&gt;確率文法&lt;/a&gt;を参照&lt;/p&gt;</content><category term="情報科学"></category><category term="変形文法"></category><category term="チョムスキー標準形"></category></entry></feed>

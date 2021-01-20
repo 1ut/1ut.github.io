@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - 情報学</title><link href="/" rel="alternate"></link><link href="/feeds/qing-bao-xue.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:54:17+09:00</updated><entry><title>確率文法と確率文脈自由文法</title><link href="/que-lu-wen-fa-toque-lu-wen-mo-zi-you-wen-fa.html" rel="alternate"></link><published>2021-01-20T15:54:17+09:00</published><updated>2021-01-20T15:54:17+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/que-lu-wen-fa-toque-lu-wen-mo-zi-you-wen-fa.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;確率文法とは&lt;/h1&gt;
+&lt;p&gt;通常の文法ではパターンに一致するかしないかという1か0でしか評価できないが、確率文法は確率により一致度を評価するモデル。
+配列パターンの例外を許すために配列を確率的にモデル化する。
+確率文法モデルの生成は、文字列空間とその空間上の確率分布を定義しているのと同義である。&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;以下のように例外に対して低い確率を与えることで「だいたい正しい」パターンを認識できるようになっている。&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aW (0.45)
+S -&amp;gt; bW (0.45)
+例外　S -&amp;gt; cW (0.1) 
+(S, W: 非終端記号、a,b,c: 終端記号)&lt;/p&gt;
+&lt;h1&gt;確率文法と生物学の関わり&lt;/h1&gt;
+&lt;p&gt;DNA配列などの実際の解析上パターンに完全一致する配列というのはあまり見られない。確率でパターンの類似度を議論する必要がある。&lt;/p&gt;
+&lt;h1&gt;隠れマルコフモデルと確率正規文法は同義である&lt;/h1&gt;
+&lt;p&gt;どちらもW -&amp;gt; aWの変換で定義されるミーリー機械である。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;隠れマルコフモデルと確率正規文法の違い&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(歴史的に)異なった表現方法を持つこと。&lt;/p&gt;
+&lt;h1&gt;確率文脈自由文法&lt;/h1&gt;
+&lt;p&gt;隠れマルコフモデル(HMM)と同様の問題・アルゴリズム&lt;/p&gt;
+&lt;h1&gt;確率モデルで最適な配列をアラインメントする方法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+Viterbiアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+CYKアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;配列の確率を計算する方法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+前向き・後ろ向きアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+inside outside アルゴリズム　（&lt;a href="内側アルゴリズム.md"&gt;内側アルゴリズム&lt;/a&gt;、&lt;a href="外側アルゴリズム.md"&gt;外側アルゴリズム&lt;/a&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;学習データを利用した確率文法のパラメーター最適化&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+Baum-Welch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+EMアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;確率文脈自由文法の標準形&lt;/h1&gt;
+&lt;p&gt;文脈自由文法はの書き換え規則は任意であるが、制限されたモデルを用いて全ての書き換え規則を表現することも可能である。&lt;/p&gt;
+&lt;p&gt;標準形に直すことでそれぞれに対応したアルゴリズムを適用できるようになる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;任意の確率文脈自由文法はチョムスキー標準形 (W -&amp;gt; W1W2 or W -&amp;gt; a)に展開できる&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aSa(チョムスキー標準形には当てはまらない)はチョムスキー標準形を用いると&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; W1W2&lt;br&gt;
+W1 -&amp;gt; a 
+W2 -&amp;gt; SW1&lt;/p&gt;
+&lt;p&gt;と表せる。&lt;/p&gt;</content><category term="情報学"></category><category term="確率文法"></category><category term="確率文脈自由文法"></category></entry><entry><title>正規文法と文脈自由文法</title><link href="/zheng-gui-wen-fa-towen-mo-zi-you-wen-fa.html" rel="alternate"></link><published>2021-01-20T15:52:49+09:00</published><updated>2021-01-20T15:52:49+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/zheng-gui-wen-fa-towen-mo-zi-you-wen-fa.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;正規文法とは&lt;/h1&gt;
+&lt;p&gt;以下のような置き換えで定義される.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;W -&amp;gt; aW, W -&amp;gt; a
+(W: 非終端記号、a: 終端記号、ε: 非終端記号の終了)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;表現を簡略化するためにW -&amp;gt; εも許される。&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;奇数個のaを含む文字列のみ生成する正規文法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sから開始&lt;/li&gt;
+&lt;li&gt;S -&amp;gt; aT|bS&lt;/li&gt;
+&lt;li&gt;T -&amp;gt; aS|bT|ε
+(S, T: 非終端記号、a, b: 終端記号、ε: 非終端記号の終了, |: or)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;対応するオートマトン&lt;/h1&gt;
+&lt;h2&gt;有限状態オートマトン&lt;/h2&gt;
+&lt;h3&gt;使用例&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DNAの繰り返し配列の判定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DNAの配列を1文字ずつ受け取り、最後に終端記号ならば繰り返し配列だと判定可能なオートマトンが定義できる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;従来のBLAST&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ムーア機械とミーリー機械&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ミーリー機械: 記号を受理する有限状態オートマトン&lt;/p&gt;
+&lt;p&gt;ムーア機械: 状態を受理する有限状態オートマトン&lt;/p&gt;
+&lt;p&gt;これらは互いに変換可能。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;決定性オートマトンと非決定性オートマトン&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;決定性オートマトン: &lt;/p&gt;
+&lt;p&gt;遷移（入力を受け取る順番）が一種類しかないため線形時間で処理が可能。&lt;/p&gt;
+&lt;p&gt;非決定性オートマトン: &lt;/p&gt;
+&lt;p&gt;複数の繊維の組み合わせを許す。計算時間が発散する。&lt;/p&gt;
+&lt;p&gt;決定性オートマトンに変換可能 -&amp;gt;  簡略な非決定性オートマトンによるモデルを定義した後、決定性オートマトンに変換して線形時間で計算可能&lt;/p&gt;
+&lt;h1&gt;正規文法で出来ないこと&lt;/h1&gt;
+&lt;p&gt;正規文法だけで回文だけを発生させることができない。つまり正しい回文と回分でないものを区別することができない&lt;/p&gt;
+&lt;p&gt;複写（同一の２個の部分からなる文字列 例: aabaab）も同様 -&amp;gt; 右側に終端記号を並べられないため&lt;/p&gt;
+&lt;h1&gt;文脈自由文法とは&lt;/h1&gt;
+&lt;p&gt;正規文法では回文が生成できないように、入れ子構造の終端記号の遠距離の相互作用を許さない。
+それを実現するために、正規文法に追加して、任意の非終端記号Sと終端記号aの組み合わせを許す。(一方、左辺は正規文法と同様に「一個の非終端記号S」に限られる)&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;正規文法と異なり回文を生成可能な例&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aSb|bSb|aa|bb&lt;/p&gt;
+&lt;p&gt;このsによる回文aabaabaaの導出&lt;/p&gt;
+&lt;p&gt;s→asa→aasaa→aabsbaa→aabaabaa &lt;/p&gt;
+&lt;h1&gt;生物学との関連&lt;/h1&gt;
+&lt;p&gt;RNAステムループ構造の判定に使える。(問題参照)&lt;/p&gt;
+&lt;h1&gt;構文解析木による表現&lt;/h1&gt;
+&lt;p&gt;以下のように構文解析木で表現すると、文脈自由文法により離れたところの依存関係を表現できることがわかる。&lt;/p&gt;
+&lt;h1&gt;実装&lt;/h1&gt;
+&lt;p&gt;スタックを用いる&lt;/p&gt;</content><category term="情報学"></category><category term="正規文法"></category><category term="文脈自由文法"></category></entry><entry><title>チョムスキー階層とは</title><link href="/chiyomusukijie-ceng-toha.html" rel="alternate"></link><published>2021-01-20T15:49:46+09:00</published><updated>2021-01-20T15:49:46+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/chiyomusukijie-ceng-toha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;チョムスキー階層とは&lt;/h1&gt;
+&lt;p&gt;チョムスキーが、機械的に文章を解釈するために作ったルール&lt;/p&gt;
+&lt;p&gt;以下、左生成のルール（文字は左から読むという習慣に合わせている）&lt;/p&gt;
+&lt;p&gt;下にあるものは上のものを内包する（例えば文脈自由文法や文脈依存文法は正規文法を内包する）&lt;/p&gt;
+&lt;p&gt;a、b: 終端記号
+W: 非終端記号&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正規文法
+W→aWとW→aのみ許される&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文脈自由文法
+任意のW→bのみ許される&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文脈依存文法
+非終端記号の変形は前後の文脈に依存。
+生成規則はa1Wa2→a1ba2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;区構造文法
+任意の生成規則が許される。何でもあり&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;オートマトンとの関連&lt;/h1&gt;
+&lt;p&gt;チョムスキー階層のそれぞれの文法はオートマトンに対応している。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文法
+構文解析状態オートマトン&lt;/li&gt;
+&lt;li&gt;正規文法
+有限状態オートマトン&lt;/li&gt;
+&lt;li&gt;文脈自由文法
+プッシュダウンオートマトン&lt;/li&gt;
+&lt;li&gt;文脈依存文法
+線形有界オートマトン&lt;/li&gt;
+&lt;li&gt;句構造文法
+チューリング機械&lt;/li&gt;
+&lt;/ul&gt;</content><category term="情報学"></category><category term="チョムスキー階層"></category><category term="オートマトン"></category></entry></feed>

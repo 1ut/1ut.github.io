@@ -1,5 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:38:20+09:00</updated><entry><title>oakbridgeでgromacsを使う</title><link href="/oakbridgedegromacswoshi-u.html" rel="alternate"></link><published>2021-01-20T15:38:20+09:00</published><updated>2021-01-20T15:38:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/oakbridgedegromacswoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:48:00+09:00</updated><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;p&gt;mac、vscode、texliveなどインストールする&lt;/p&gt;
+&lt;h2&gt;インストールするもの&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;pandoc citer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;行頭（YAML）に&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;bibliography: [./report.bib]&lt;/h2&gt;
+&lt;p&gt;と含める&lt;/p&gt;
+&lt;p&gt;[@と打つと*.bibの内容が候補として表示される&lt;/p&gt;
+&lt;p&gt;https://marketplace.visualstudio.com/items?itemName=notZaki.pandocciter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設定ファイルなど&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下のurlを参照し、VScodeでmarkdown -&amp;gt; pandoc -&amp;gt; pdf環境を作る&lt;/p&gt;
+&lt;p&gt;https://jaantollander.com/post/scientific-writing-with-markdown/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;日本語化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;フォントをインストールし&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install font-ipaexfont&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;pandocのオプションに&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;-V documentclass=bxjsarticle&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;を追加する&lt;/p&gt;
+&lt;p&gt;例
+pandoc sample.md -o sample.pdf --pdf-engine=lualatex -V documentclass=bxjsarticle -V classoption=pandoc&lt;/p&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;https://qiita.com/sky_y/items/15bf7737f4b37da50372&lt;/p&gt;
+&lt;h2&gt;csvを表示&lt;/h2&gt;
+&lt;p&gt;pandoc-csv2tableで表示&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;![This text will become the table caption](table.csv)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;または&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;\```{.table caption=&amp;quot;This is the **caption**&amp;quot; source=&amp;quot;table.csv&amp;quot;}  &lt;/span&gt;
+&lt;span class="err"&gt;\```&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;という風に使う&lt;/p&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;https://github.com/baig/pandoc-csv2table&lt;/p&gt;
+&lt;p&gt;インストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install haskell&lt;/span&gt;
+&lt;span class="err"&gt;brew install cabal-install&lt;/span&gt;
+&lt;span class="err"&gt;cabal update&lt;/span&gt;
+&lt;span class="err"&gt;cabal install pandoc-csv2table #　うまくいかなかったので中止&lt;/span&gt;
+&lt;span class="err"&gt;stack install pandoc-csv2table # うまく言った&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最終的に全部stackで入れ直すとうまく言った&lt;/p&gt;
+&lt;p&gt;それで、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pandoc --filter pandoc-csv2table -o test.html test.md&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;という風に使う&lt;/p&gt;</content><category term="ソフト"></category><category term="vscode"></category><category term="bibtex"></category><category term="markdown"></category><category term="latex"></category></entry><entry><title>celeryとrabbitmqによるpython非同期処理、flowerによりブラウザでジョブ表示</title><link href="/celerytorabbitmqniyorupythonfei-tong-qi-chu-li-flowerniyoriburauzadeziyobubiao-shi.html" rel="alternate"></link><published>2021-01-20T15:47:24+09:00</published><updated>2021-01-20T15:47:24+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/celerytorabbitmqniyorupythonfei-tong-qi-chu-li-flowerniyoriburauzadeziyobubiao-shi.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;celeryとrabbitmqによるpython非同期処理、flowerによりブラウザでジョブ表示&lt;/h1&gt;
+&lt;p&gt;環境
+mac, Linux, miniconda&lt;/p&gt;
+&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;スクリプトを並行して処理&lt;/p&gt;
+&lt;h2&gt;celeryのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install -c winand celery&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;RabbitMQのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;conda install -c conda-forge rabbitmq-server
+conda install -y conda-forge::ncurses
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ncursesをインストールしないと以下のようなエラーが出る&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;dyld&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Library&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;loaded&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;rpath&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libtinfo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;dylib&lt;/span&gt;
+  &lt;span class="n"&gt;Referenced&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="sr"&gt;/usr/local/Caskroom/miniconda/base/lib/erlang/erts-10.3/bin/&lt;/span&gt;&lt;span class="n"&gt;beam&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;smp&lt;/span&gt;
+  &lt;span class="n"&gt;Reason&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/conda-forge/rabbitmq-server-feedstock/issues/14"&gt;ソース&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;flowerのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install flower&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;チュートリアルの実行&lt;/h2&gt;
+&lt;p&gt;https://youtu.be/68QWZU_gCDA&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以下のタスクを定義するファイル作成（名前はtask.py）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;celery&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Celery&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Celery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.task&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;redditmqサーバーの起動&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ターミナルで&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rabbitmq-server&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;celeryの起動&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ターミナルで
+-Aのあとはタスクを定義するファイル名。（task.pyを作ったのでtask）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;celery worker -A task -l info&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ジョブを投げてみる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;タスクを定義するファイルから関数をimportして投げる。
+delayはceleryのappの関数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;task&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; 
+    &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;celeryを実行したターミナルジジョブが実行されてる様子が観れる&lt;/p&gt;
+&lt;h2&gt;flowerによりジョブをブラウザで見る&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;flower -A task --port=5555 --persistent=True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;localhost:5555 にアクセス&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;http://localhost:5555/&lt;/p&gt;
+&lt;h2&gt;celeryによる並行処理の種類&lt;/h2&gt;
+&lt;p&gt;https://youtu.be/Bo6UtRhedjE&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chains - 逐次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;celery.chains()&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;group - 並行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;celery.group()&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chords - 並行処理 -&amp;gt; 全て終わった後に別のコマンド(callback)実行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これが一番便利そう.&lt;/p&gt;
+&lt;p&gt;celery.chords()&lt;/p&gt;</content><category term="ソフト"></category><category term="celery"></category><category term="python"></category><category term="rabbitmq"></category><category term="flower"></category></entry><entry><title>pycharmのideavimでjjをescにする</title><link href="/pycharmnoideavimdejjwoescnisuru.html" rel="alternate"></link><published>2021-01-20T15:45:43+09:00</published><updated>2021-01-20T15:45:43+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/pycharmnoideavimdejjwoescnisuru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;pycharmのideavimでjjをescにする&lt;/h1&gt;
+&lt;p&gt;https://stackoverflow.com/questions/25560616/intellij-ideavim-how-to-set-key-map-for-esc&lt;/p&gt;
+&lt;p&gt;~/.ideavimrc&lt;/p&gt;
+&lt;p&gt;に以下を追記&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;imap jj &amp;lt;Esc&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;set timeoutlen=1000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="ソフト"></category><category term="pycharm"></category><category term="jjj"></category><category term="vim"></category><category term="ideavim"></category></entry><entry><title>oakbridgeでgromacsを使う</title><link href="/oakbridgedegromacswoshi-u.html" rel="alternate"></link><published>2021-01-20T15:38:20+09:00</published><updated>2021-01-20T15:38:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/oakbridgedegromacswoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sshfs oakbridge:サーバーのディレクトリ  クライアントのディレクトリ&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 

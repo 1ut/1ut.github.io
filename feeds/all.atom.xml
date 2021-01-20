@@ -1,5 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:38:20+09:00</updated><entry><title>oakbridgeでgromacsを使う</title><link href="/oakbridgedegromacswoshi-u.html" rel="alternate"></link><published>2021-01-20T15:38:20+09:00</published><updated>2021-01-20T15:38:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/oakbridgedegromacswoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:54:17+09:00</updated><entry><title>確率文法と確率文脈自由文法</title><link href="/que-lu-wen-fa-toque-lu-wen-mo-zi-you-wen-fa.html" rel="alternate"></link><published>2021-01-20T15:54:17+09:00</published><updated>2021-01-20T15:54:17+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/que-lu-wen-fa-toque-lu-wen-mo-zi-you-wen-fa.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;確率文法とは&lt;/h1&gt;
+&lt;p&gt;通常の文法ではパターンに一致するかしないかという1か0でしか評価できないが、確率文法は確率により一致度を評価するモデル。
+配列パターンの例外を許すために配列を確率的にモデル化する。
+確率文法モデルの生成は、文字列空間とその空間上の確率分布を定義しているのと同義である。&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;以下のように例外に対して低い確率を与えることで「だいたい正しい」パターンを認識できるようになっている。&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aW (0.45)
+S -&amp;gt; bW (0.45)
+例外　S -&amp;gt; cW (0.1) 
+(S, W: 非終端記号、a,b,c: 終端記号)&lt;/p&gt;
+&lt;h1&gt;確率文法と生物学の関わり&lt;/h1&gt;
+&lt;p&gt;DNA配列などの実際の解析上パターンに完全一致する配列というのはあまり見られない。確率でパターンの類似度を議論する必要がある。&lt;/p&gt;
+&lt;h1&gt;隠れマルコフモデルと確率正規文法は同義である&lt;/h1&gt;
+&lt;p&gt;どちらもW -&amp;gt; aWの変換で定義されるミーリー機械である。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;隠れマルコフモデルと確率正規文法の違い&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(歴史的に)異なった表現方法を持つこと。&lt;/p&gt;
+&lt;h1&gt;確率文脈自由文法&lt;/h1&gt;
+&lt;p&gt;隠れマルコフモデル(HMM)と同様の問題・アルゴリズム&lt;/p&gt;
+&lt;h1&gt;確率モデルで最適な配列をアラインメントする方法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+Viterbiアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+CYKアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;配列の確率を計算する方法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+前向き・後ろ向きアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+inside outside アルゴリズム　（&lt;a href="内側アルゴリズム.md"&gt;内側アルゴリズム&lt;/a&gt;、&lt;a href="外側アルゴリズム.md"&gt;外側アルゴリズム&lt;/a&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;学習データを利用した確率文法のパラメーター最適化&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HMM
+Baum-Welch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;確率文脈自由文法
+EMアルゴリズム&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;確率文脈自由文法の標準形&lt;/h1&gt;
+&lt;p&gt;文脈自由文法はの書き換え規則は任意であるが、制限されたモデルを用いて全ての書き換え規則を表現することも可能である。&lt;/p&gt;
+&lt;p&gt;標準形に直すことでそれぞれに対応したアルゴリズムを適用できるようになる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;任意の確率文脈自由文法はチョムスキー標準形 (W -&amp;gt; W1W2 or W -&amp;gt; a)に展開できる&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aSa(チョムスキー標準形には当てはまらない)はチョムスキー標準形を用いると&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; W1W2&lt;br&gt;
+W1 -&amp;gt; a 
+W2 -&amp;gt; SW1&lt;/p&gt;
+&lt;p&gt;と表せる。&lt;/p&gt;</content><category term="情報学"></category><category term="確率文法"></category><category term="確率文脈自由文法"></category></entry><entry><title>正規文法と文脈自由文法</title><link href="/zheng-gui-wen-fa-towen-mo-zi-you-wen-fa.html" rel="alternate"></link><published>2021-01-20T15:52:49+09:00</published><updated>2021-01-20T15:52:49+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/zheng-gui-wen-fa-towen-mo-zi-you-wen-fa.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;正規文法とは&lt;/h1&gt;
+&lt;p&gt;以下のような置き換えで定義される.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;W -&amp;gt; aW, W -&amp;gt; a
+(W: 非終端記号、a: 終端記号、ε: 非終端記号の終了)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;表現を簡略化するためにW -&amp;gt; εも許される。&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;奇数個のaを含む文字列のみ生成する正規文法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sから開始&lt;/li&gt;
+&lt;li&gt;S -&amp;gt; aT|bS&lt;/li&gt;
+&lt;li&gt;T -&amp;gt; aS|bT|ε
+(S, T: 非終端記号、a, b: 終端記号、ε: 非終端記号の終了, |: or)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;対応するオートマトン&lt;/h1&gt;
+&lt;h2&gt;有限状態オートマトン&lt;/h2&gt;
+&lt;h3&gt;使用例&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DNAの繰り返し配列の判定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DNAの配列を1文字ずつ受け取り、最後に終端記号ならば繰り返し配列だと判定可能なオートマトンが定義できる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;従来のBLAST&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ムーア機械とミーリー機械&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ミーリー機械: 記号を受理する有限状態オートマトン&lt;/p&gt;
+&lt;p&gt;ムーア機械: 状態を受理する有限状態オートマトン&lt;/p&gt;
+&lt;p&gt;これらは互いに変換可能。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;決定性オートマトンと非決定性オートマトン&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;決定性オートマトン: &lt;/p&gt;
+&lt;p&gt;遷移（入力を受け取る順番）が一種類しかないため線形時間で処理が可能。&lt;/p&gt;
+&lt;p&gt;非決定性オートマトン: &lt;/p&gt;
+&lt;p&gt;複数の繊維の組み合わせを許す。計算時間が発散する。&lt;/p&gt;
+&lt;p&gt;決定性オートマトンに変換可能 -&amp;gt;  簡略な非決定性オートマトンによるモデルを定義した後、決定性オートマトンに変換して線形時間で計算可能&lt;/p&gt;
+&lt;h1&gt;正規文法で出来ないこと&lt;/h1&gt;
+&lt;p&gt;正規文法だけで回文だけを発生させることができない。つまり正しい回文と回分でないものを区別することができない&lt;/p&gt;
+&lt;p&gt;複写（同一の２個の部分からなる文字列 例: aabaab）も同様 -&amp;gt; 右側に終端記号を並べられないため&lt;/p&gt;
+&lt;h1&gt;文脈自由文法とは&lt;/h1&gt;
+&lt;p&gt;正規文法では回文が生成できないように、入れ子構造の終端記号の遠距離の相互作用を許さない。
+それを実現するために、正規文法に追加して、任意の非終端記号Sと終端記号aの組み合わせを許す。(一方、左辺は正規文法と同様に「一個の非終端記号S」に限られる)&lt;/p&gt;
+&lt;h1&gt;例&lt;/h1&gt;
+&lt;p&gt;正規文法と異なり回文を生成可能な例&lt;/p&gt;
+&lt;p&gt;S -&amp;gt; aSb|bSb|aa|bb&lt;/p&gt;
+&lt;p&gt;このsによる回文aabaabaaの導出&lt;/p&gt;
+&lt;p&gt;s→asa→aasaa→aabsbaa→aabaabaa &lt;/p&gt;
+&lt;h1&gt;生物学との関連&lt;/h1&gt;
+&lt;p&gt;RNAステムループ構造の判定に使える。(問題参照)&lt;/p&gt;
+&lt;h1&gt;構文解析木による表現&lt;/h1&gt;
+&lt;p&gt;以下のように構文解析木で表現すると、文脈自由文法により離れたところの依存関係を表現できることがわかる。&lt;/p&gt;
+&lt;h1&gt;実装&lt;/h1&gt;
+&lt;p&gt;スタックを用いる&lt;/p&gt;</content><category term="情報学"></category><category term="正規文法"></category><category term="文脈自由文法"></category></entry><entry><title>内側アルゴリズムとは</title><link href="/nei-ce-arugorizumutoha.html" rel="alternate"></link><published>2021-01-20T15:51:30+09:00</published><updated>2021-01-20T15:51:30+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/nei-ce-arugorizumutoha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;内側アルゴリズムとは&lt;/h1&gt;
+&lt;p&gt;チョムスキー標準形（W_v -&amp;gt; W_x W_y or W_v -&amp;gt; a）の確率文脈自由文法（Stochastic context-free grammar, SCFG)&lt;/p&gt;
+&lt;p&gt;HMMの前向き、内向きアルゴリズムに対応するアルゴリズム。&lt;/p&gt;
+&lt;p&gt;ここで、以下のように確率を定義する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;W_v -&amp;gt; W_x W_y に遷移する確率
+t_v(x, y)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;W_v -&amp;gt; aと出力する確率
+e_v(a)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部分文字列x_i...x_jがW_vを根に持つ確率
+α(i, j, v)
+内側アルゴリズムはこれを&lt;strong&gt;全てのi,j,vに対して&lt;/strong&gt;算出する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここで長さLの文字列を考え、Wの総数をMとする&lt;/p&gt;
+&lt;p&gt;部分文字列x_i...x_jをW_yとW_zを根に持つ部分に分ける。
+分け目の数字をiとjの間の数字kであるとすると文字列xi...xkとxk+1...xjに分かれる。&lt;/p&gt;
+&lt;p&gt;この時求めたい確率（x_i...x_jがW＿vを根に持つ確率）は、上で定義したαを用いて以下のように表される式をすべてのk, y, zに対して足し合わせたものである。&lt;/p&gt;
+&lt;p&gt;α(i, k, y) * α(k+1, j, z) * t_v(y, z)&lt;/p&gt;
+&lt;p&gt;ここでα(i, k, y)は配列x_i...x_kがW_yを根に持つ確率、α(k+1, j, z)は配列x_k+1...x_jがW_zを根に持つ確率、t_v(y, z)はW_v -&amp;gt; W_y W_zに遷移する確率である。&lt;/p&gt;
+&lt;p&gt;内側アルゴリズムは上の式を全てのi,j,vに対して計算するものである。&lt;/p&gt;
+&lt;p&gt;以下の図に以上の手順をまとめてある。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="https://i.imgur.com/30BlLKB.jpg?1"&gt;&lt;/p&gt;
+&lt;h1&gt;外側アルゴリズムとは&lt;/h1&gt;
+&lt;p&gt;以下の画像参照&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="https://i.imgur.com/ylbQ0e8.jpg?1"&gt;&lt;/p&gt;</content><category term="情報科学"></category><category term="内側アルゴリズム"></category><category term="チョムスキー標準形"></category></entry><entry><title>変形文法とは</title><link href="/bian-xing-wen-fa-toha.html" rel="alternate"></link><published>2021-01-20T15:51:06+09:00</published><updated>2021-01-20T15:51:06+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/bian-xing-wen-fa-toha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;変形文法（生成文法）&lt;/h1&gt;
+&lt;h2&gt;変形文法の概要&lt;/h2&gt;
+&lt;p&gt;文章を生成するから生成文法とも呼ばれる。&lt;/p&gt;
+&lt;p&gt;チョムスキーにより提唱された、「文章が文法的に正しいかどうか判断」「構文解析」するアルゴリズム（形式機械）。&lt;/p&gt;
+&lt;p&gt;言語の制約を少ない規則で再現することを目的にしている。&lt;/p&gt;
+&lt;h2&gt;生物学（バイオインフォマティクス）との関わり&lt;/h2&gt;
+&lt;p&gt;正規文法を確率化した隠れマルコフモデルはDNA配列のアラインメントなどに有用
+文脈自由文法を確率化した確率文脈自由文法はRNAの構造解析などに有用&lt;/p&gt;
+&lt;h2&gt;変形文法の定義&lt;/h2&gt;
+&lt;p&gt;「記号」と「記号から記号への置き換え規則」から成る。
+記号は「非終端記号」（実際の文章には現れない抽象的なものを仮定。書き換えられる。）と「終端記号」（文章として現れる記号。文字や単語、音節。書き換えられない。）から成る。&lt;/p&gt;
+&lt;h3&gt;変形文法の例&lt;/h3&gt;
+&lt;p&gt;(S: 非終端記号、a,b: 終端記号、ε: 非終端記号の終了)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;aとbから成る「任意の」文字列を生成する変形文法
+S -&amp;gt; aS, S -&amp;gt; bS, S -&amp;gt; ε&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この規則に従えば全ての組み合わせのaとbから成る文字列を生成可能。&lt;/p&gt;
+&lt;h1&gt;置き換え規則の制限の分類（チョムスキー階層）&lt;/h1&gt;
+&lt;p&gt;&lt;a href="チョムスキー階層.md"&gt;チョムスキー階層&lt;/a&gt;　を参照&lt;/p&gt;
+&lt;h1&gt;正規文法&lt;/h1&gt;
+&lt;p&gt;S -&amp;gt; aS, S -&amp;gt; a
+(S: 非終端記号、a: 終端記号)&lt;/p&gt;
+&lt;p&gt;&lt;a href="正規文法.md"&gt;正規文法&lt;/a&gt;　を参照&lt;/p&gt;
+&lt;h1&gt;文脈自由文法&lt;/h1&gt;
+&lt;p&gt;S -&amp;gt; 任意のS, aの組み合わせ
+(S: 非終端記号、a: 終端記号)&lt;/p&gt;
+&lt;p&gt;&lt;a href="文脈自由文法.md"&gt;文脈自由文法&lt;/a&gt;を参照&lt;/p&gt;
+&lt;h1&gt;確率文法&lt;/h1&gt;
+&lt;p&gt;上記の文法の遷移に確情情報を付加。&lt;/p&gt;
+&lt;p&gt;&lt;a href="確率文法.md"&gt;確率文法&lt;/a&gt;を参照&lt;/p&gt;</content><category term="情報科学"></category><category term="変形文法"></category><category term="チョムスキー標準形"></category></entry><entry><title>チョムスキー階層とは</title><link href="/chiyomusukijie-ceng-toha.html" rel="alternate"></link><published>2021-01-20T15:49:46+09:00</published><updated>2021-01-20T15:49:46+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/chiyomusukijie-ceng-toha.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;チョムスキー階層とは&lt;/h1&gt;
+&lt;p&gt;チョムスキーが、機械的に文章を解釈するために作ったルール&lt;/p&gt;
+&lt;p&gt;以下、左生成のルール（文字は左から読むという習慣に合わせている）&lt;/p&gt;
+&lt;p&gt;下にあるものは上のものを内包する（例えば文脈自由文法や文脈依存文法は正規文法を内包する）&lt;/p&gt;
+&lt;p&gt;a、b: 終端記号
+W: 非終端記号&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正規文法
+W→aWとW→aのみ許される&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文脈自由文法
+任意のW→bのみ許される&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文脈依存文法
+非終端記号の変形は前後の文脈に依存。
+生成規則はa1Wa2→a1ba2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;区構造文法
+任意の生成規則が許される。何でもあり&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;オートマトンとの関連&lt;/h1&gt;
+&lt;p&gt;チョムスキー階層のそれぞれの文法はオートマトンに対応している。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文法
+構文解析状態オートマトン&lt;/li&gt;
+&lt;li&gt;正規文法
+有限状態オートマトン&lt;/li&gt;
+&lt;li&gt;文脈自由文法
+プッシュダウンオートマトン&lt;/li&gt;
+&lt;li&gt;文脈依存文法
+線形有界オートマトン&lt;/li&gt;
+&lt;li&gt;句構造文法
+チューリング機械&lt;/li&gt;
+&lt;/ul&gt;</content><category term="情報学"></category><category term="チョムスキー階層"></category><category term="オートマトン"></category></entry><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;p&gt;mac、vscode、texliveなどインストールする&lt;/p&gt;
+&lt;h2&gt;インストールするもの&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;pandoc citer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;行頭（YAML）に&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;bibliography: [./report.bib]&lt;/h2&gt;
+&lt;p&gt;と含める&lt;/p&gt;
+&lt;p&gt;[@と打つと*.bibの内容が候補として表示される&lt;/p&gt;
+&lt;p&gt;https://marketplace.visualstudio.com/items?itemName=notZaki.pandocciter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設定ファイルなど&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下のurlを参照し、VScodeでmarkdown -&amp;gt; pandoc -&amp;gt; pdf環境を作る&lt;/p&gt;
+&lt;p&gt;https://jaantollander.com/post/scientific-writing-with-markdown/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;日本語化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;フォントをインストールし&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install font-ipaexfont&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;pandocのオプションに&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;-V documentclass=bxjsarticle&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;を追加する&lt;/p&gt;
+&lt;p&gt;例
+pandoc sample.md -o sample.pdf --pdf-engine=lualatex -V documentclass=bxjsarticle -V classoption=pandoc&lt;/p&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;https://qiita.com/sky_y/items/15bf7737f4b37da50372&lt;/p&gt;
+&lt;h2&gt;csvを表示&lt;/h2&gt;
+&lt;p&gt;pandoc-csv2tableで表示&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;![This text will become the table caption](table.csv)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;または&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;\```{.table caption=&amp;quot;This is the **caption**&amp;quot; source=&amp;quot;table.csv&amp;quot;}  &lt;/span&gt;
+&lt;span class="err"&gt;\```&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;という風に使う&lt;/p&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;https://github.com/baig/pandoc-csv2table&lt;/p&gt;
+&lt;p&gt;インストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install haskell&lt;/span&gt;
+&lt;span class="err"&gt;brew install cabal-install&lt;/span&gt;
+&lt;span class="err"&gt;cabal update&lt;/span&gt;
+&lt;span class="err"&gt;cabal install pandoc-csv2table #　うまくいかなかったので中止&lt;/span&gt;
+&lt;span class="err"&gt;stack install pandoc-csv2table # うまく言った&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最終的に全部stackで入れ直すとうまく言った&lt;/p&gt;
+&lt;p&gt;それで、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pandoc --filter pandoc-csv2table -o test.html test.md&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;という風に使う&lt;/p&gt;</content><category term="ソフト"></category><category term="vscode"></category><category term="bibtex"></category><category term="markdown"></category><category term="latex"></category></entry><entry><title>celeryとrabbitmqによるpython非同期処理、flowerによりブラウザでジョブ表示</title><link href="/celerytorabbitmqniyorupythonfei-tong-qi-chu-li-flowerniyoriburauzadeziyobubiao-shi.html" rel="alternate"></link><published>2021-01-20T15:47:24+09:00</published><updated>2021-01-20T15:47:24+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/celerytorabbitmqniyorupythonfei-tong-qi-chu-li-flowerniyoriburauzadeziyobubiao-shi.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;celeryとrabbitmqによるpython非同期処理、flowerによりブラウザでジョブ表示&lt;/h1&gt;
+&lt;p&gt;環境
+mac, Linux, miniconda&lt;/p&gt;
+&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;スクリプトを並行して処理&lt;/p&gt;
+&lt;h2&gt;celeryのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install -c winand celery&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;RabbitMQのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;conda install -c conda-forge rabbitmq-server
+conda install -y conda-forge::ncurses
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ncursesをインストールしないと以下のようなエラーが出る&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;dyld&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Library&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;loaded&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;rpath&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;libtinfo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;dylib&lt;/span&gt;
+  &lt;span class="n"&gt;Referenced&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="sr"&gt;/usr/local/Caskroom/miniconda/base/lib/erlang/erts-10.3/bin/&lt;/span&gt;&lt;span class="n"&gt;beam&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;smp&lt;/span&gt;
+  &lt;span class="n"&gt;Reason&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/conda-forge/rabbitmq-server-feedstock/issues/14"&gt;ソース&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;flowerのインストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install flower&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;チュートリアルの実行&lt;/h2&gt;
+&lt;p&gt;https://youtu.be/68QWZU_gCDA&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以下のタスクを定義するファイル作成（名前はtask.py）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;celery&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Celery&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Celery&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.task&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;redditmqサーバーの起動&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ターミナルで&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rabbitmq-server&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;celeryの起動&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ターミナルで
+-Aのあとはタスクを定義するファイル名。（task.pyを作ったのでtask）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;celery worker -A task -l info&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ジョブを投げてみる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;タスクを定義するファイルから関数をimportして投げる。
+delayはceleryのappの関数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;task&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; 
+    &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;celeryを実行したターミナルジジョブが実行されてる様子が観れる&lt;/p&gt;
+&lt;h2&gt;flowerによりジョブをブラウザで見る&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;flower -A task --port=5555 --persistent=True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;localhost:5555 にアクセス&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;http://localhost:5555/&lt;/p&gt;
+&lt;h2&gt;celeryによる並行処理の種類&lt;/h2&gt;
+&lt;p&gt;https://youtu.be/Bo6UtRhedjE&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chains - 逐次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;celery.chains()&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;group - 並行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;celery.group()&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chords - 並行処理 -&amp;gt; 全て終わった後に別のコマンド(callback)実行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これが一番便利そう.&lt;/p&gt;
+&lt;p&gt;celery.chords()&lt;/p&gt;</content><category term="ソフト"></category><category term="celery"></category><category term="python"></category><category term="rabbitmq"></category><category term="flower"></category></entry><entry><title>RNAiによるオフターゲット効果</title><link href="/rnainiyoruohutagetsutoxiao-guo.html" rel="alternate"></link><published>2021-01-20T15:46:31+09:00</published><updated>2021-01-20T15:46:31+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/rnainiyoruohutagetsutoxiao-guo.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;RNAiによるオフターゲット効果&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;RNAiとは&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;二本鎖RNAがかかわって相補的なmRNAを特異的に切断　&lt;/p&gt;
+&lt;p&gt;siRNA...切断、医薬品など&lt;/p&gt;
+&lt;p&gt;miRNA...生体内&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;オフターゲット効果とは&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;siRNAのシード領域がそれと相補的なRNAと塩基対合エネルギーの強さ&lt;/p&gt;</content><category term="RNA"></category><category term="RNAi"></category><category term="オフターゲット効果"></category><category term="siRNA"></category></entry><entry><title>pycharmのideavimでjjをescにする</title><link href="/pycharmnoideavimdejjwoescnisuru.html" rel="alternate"></link><published>2021-01-20T15:45:43+09:00</published><updated>2021-01-20T15:45:43+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/pycharmnoideavimdejjwoescnisuru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;pycharmのideavimでjjをescにする&lt;/h1&gt;
+&lt;p&gt;https://stackoverflow.com/questions/25560616/intellij-ideavim-how-to-set-key-map-for-esc&lt;/p&gt;
+&lt;p&gt;~/.ideavimrc&lt;/p&gt;
+&lt;p&gt;に以下を追記&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;imap jj &amp;lt;Esc&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;set timeoutlen=1000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="ソフト"></category><category term="pycharm"></category><category term="jjj"></category><category term="vim"></category><category term="ideavim"></category></entry><entry><title>oakbridgeでgromacsを使う</title><link href="/oakbridgedegromacswoshi-u.html" rel="alternate"></link><published>2021-01-20T15:38:20+09:00</published><updated>2021-01-20T15:38:20+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/oakbridgedegromacswoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;oakbridgeにファイルシステムを接続&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sshfs oakbridge:サーバーのディレクトリ  クライアントのディレクトリ&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -132,4 +517,4 @@
 &lt;ul&gt;
 &lt;li&gt;回転&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;二本指で平行移動、二本指で回転、&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="chimera"></category><category term="操作"></category><category term="ズーム"></category><category term="拡大"></category><category term="縮小"></category></entry><entry><title></title><link href="/.html" rel="alternate"></link><published>2021-01-04T18:17:18+09:00</published><updated>2021-01-04T18:17:18+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/.html</id><content type="html"></content><category term="misc"></category></entry></feed>
+&lt;p&gt;二本指で平行移動、二本指で回転、&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="chimera"></category><category term="操作"></category><category term="ズーム"></category><category term="拡大"></category><category term="縮小"></category></entry></feed>
