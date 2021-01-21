@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-21T22:36:00+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-21T22:36:00+09:00</published><updated>2021-01-21T22:36:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-21T22:38:12+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-21T22:38:12+09:00</published><updated>2021-01-21T22:38:12+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
 &lt;p&gt;ダウンロード&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ccp4i download page" src="http://www.ccp4.ac.uk/download/#os=mac"&gt;&lt;/p&gt;
+&lt;h1&gt;基本操作&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;refmac5
+input.mtzとinput.pdb -&amp;gt; output.mtz, output.pdb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;coot
+pdbを操作、保存
+coot.pdb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;refmac5 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;初期のmtzとcoot.pdb -&amp;gt; output.mtz, output.pdb&lt;/p&gt;
+&lt;p&gt;以下、refmac5とcootを繰り返す&lt;/p&gt;
 &lt;h1&gt;macbookでCootを拡大縮小する方法&lt;/h1&gt;
 &lt;p&gt;XQartzに&lt;/p&gt;
 &lt;p&gt;&lt;img alt="公式" src="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/docs/coot-faq.html#On-a-Mac-OSX-laptop-how-do-I-work-without-a-mouse_003f"&gt;&lt;/p&gt;
