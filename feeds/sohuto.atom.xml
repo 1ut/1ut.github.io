@@ -1,5 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-20T15:48:00+09:00</updated><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-21T22:36:00+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-21T22:36:00+09:00</published><updated>2021-01-21T22:36:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
+&lt;p&gt;ダウンロード&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ccp4i download page" src="http://www.ccp4.ac.uk/download/#os=mac"&gt;&lt;/p&gt;
+&lt;h1&gt;macbookでCootを拡大縮小する方法&lt;/h1&gt;
+&lt;p&gt;XQartzに&lt;/p&gt;
+&lt;p&gt;&lt;img alt="公式" src="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/docs/coot-faq.html#On-a-Mac-OSX-laptop-how-do-I-work-without-a-mouse_003f"&gt;&lt;/p&gt;
+&lt;h1&gt;pdbファイルの分割(split)・結合（merge）・抽出(extract)&lt;/h1&gt;
+&lt;p&gt;pdb_toolsが便利&lt;/p&gt;
+&lt;h2&gt;インストール&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pip install pdb-tools&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;複数のpdb fileをまとめる&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_merge&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;塩基(residue)を抽出する&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_selres&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;file&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;例&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;pdb_selres&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;CTF&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Extracts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;residues&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;pdb_selres&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;CTF&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Extracts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;every&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;th&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;residue&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;塩基(residue)を削除する&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_delres&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;file&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;cootだけで特定の塩基だけを抽出する方法&lt;/h1&gt;
+&lt;p&gt;cootでchange chain ID -&amp;gt; Use Residue range -&amp;gt; from to &lt;/p&gt;
+&lt;p&gt;で新たにchainを作成&lt;/p&gt;
+&lt;p&gt;その後メニューバーの&lt;/p&gt;
+&lt;p&gt;Delete -&amp;gt; chainで必要なchain以外消せる&lt;/p&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;&lt;img alt="researchgate" src="https://www.researchgate.net/post/How-to-import-and-merge-different-pdb-contents-into-one"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="refmac5"></category><category term="coot"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-21T16:54:11+09:00</published><updated>2021-01-21T16:54:11+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
+&lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;xmgraceのインストール&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install grace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Xmgraceの起動&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;launchctl load -w /Library/LaunchAgents/org.macosforge.xquartz.startx.plist&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;を実行後再起動し&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;xmgrace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;で再起動&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ソース&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;xmgraceとコマンドを打ってもXquarzが起動せず&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Can&amp;#39;t open display Failed initializing GUI, exiting&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;というエラーが出ており、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DISPLAY=:0.0 xmgrace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;と変数DISPLAYを指定しても変わらなかった。&lt;/p&gt;
+&lt;p&gt;対処法を調べていたらこの投稿がヒットし、下のような解決策が見つかった。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Reddit" src="https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/"&gt;&lt;/p&gt;
+&lt;p&gt;公式には、&lt;/p&gt;
+&lt;p&gt;&lt;img alt="公式" src="https://www.xquartz.org/FAQs.html"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Run the following to prevent launchd from setting $DISPLAY and creating its socket.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;と説明されており、launchdにDISPLAYとsocketを勝手に設定されるのを防ぐ目的があるとされている。&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;p&gt;mac、vscode、texliveなどインストールする&lt;/p&gt;
 &lt;h2&gt;インストールするもの&lt;/h2&gt;
@@ -233,45 +305,7 @@ delayはceleryのappの関数。&lt;/p&gt;
 &lt;p&gt;ソース:&lt;/p&gt;
 &lt;p&gt;https://amberhub.chpc.utah.edu/making-movies/&lt;/p&gt;
 &lt;h1&gt;作成した動画&lt;/h1&gt;
-&lt;p&gt;!(https://youtu.be/8AkwZiUOs3c)[https://youtu.be/8AkwZiUOs3c]&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="oakbridge"></category><category term="gromacs"></category></entry><entry><title>タンパク質の機能予測とそのwebサイト</title><link href="/tanpakuzhi-noji-neng-yu-ce-tosonowebsaito.html" rel="alternate"></link><published>2021-01-19T01:19:29+09:00</published><updated>2021-01-19T01:19:29+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-19:/tanpakuzhi-noji-neng-yu-ce-tosonowebsaito.html</id><content type="html"></content><category term="ソフト"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-05T00:17:57+09:00</published><updated>2021-01-05T00:17:57+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-05:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
-&lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
-&lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h1&gt;xmgraceのインストール&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install grace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h1&gt;Xmgraceの起動&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;launchctl load -w /Library/LaunchAgents/org.macosforge.xquartz.startx.plist&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;を実行後再起動し&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;xmgrace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;で再起動&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ソース&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;xmgraceとコマンドを打ってもXquarzが起動せず&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Can&amp;#39;t open display Failed initializing GUI, exiting&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;というエラーが出ており、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DISPLAY=:0.0 xmgrace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;と変数DISPLAYを指定しても変わらなかった。&lt;/p&gt;
-&lt;p&gt;対処法を調べていたらこの投稿がヒットし、上のような解決策が見つかった。&lt;/p&gt;
-&lt;p&gt;https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/&lt;/p&gt;
-&lt;p&gt;公式には、&lt;/p&gt;
-&lt;p&gt;https://www.xquartz.org/FAQs.html&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Run the following to prevent launchd from setting $DISPLAY and creating its socket.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;と説明されており、launchdにDISPLAYとsocketを勝手に設定されるのを防ぐ目的があるとされている。&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>macでucsf chimeraを使う</title><link href="/macdeucsf-chimerawoshi-u.html" rel="alternate"></link><published>2021-01-04T18:44:45+09:00</published><updated>2021-01-04T18:44:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/macdeucsf-chimerawoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;UCSF chimeraとは&lt;/h1&gt;
+&lt;p&gt;!(https://youtu.be/8AkwZiUOs3c)[https://youtu.be/8AkwZiUOs3c]&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="oakbridge"></category><category term="gromacs"></category></entry><entry><title>タンパク質の機能予測とそのwebサイト</title><link href="/tanpakuzhi-noji-neng-yu-ce-tosonowebsaito.html" rel="alternate"></link><published>2021-01-19T01:19:29+09:00</published><updated>2021-01-19T01:19:29+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-19:/tanpakuzhi-noji-neng-yu-ce-tosonowebsaito.html</id><content type="html"></content><category term="ソフト"></category></entry><entry><title>macでucsf chimeraを使う</title><link href="/macdeucsf-chimerawoshi-u.html" rel="alternate"></link><published>2021-01-04T18:44:45+09:00</published><updated>2021-01-04T18:44:45+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-04:/macdeucsf-chimerawoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;UCSF chimeraとは&lt;/h1&gt;
 &lt;h1&gt;macでの操作方法&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;ソース&lt;/li&gt;

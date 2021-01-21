@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>生物化学wiki</title>
+    <title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="1ut">
@@ -82,7 +82,7 @@
 						<i class="icon-folder-open icon-large"></i>RNA
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="/category/sohuto.html">
 						<i class="icon-folder-open icon-large"></i>ソフト
 					</a>
@@ -102,12 +102,72 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content">
-<ul>
-	<li><a href="category/qing-bao-ke-xue.html">情報科学</a></li>
-	<li><a href="category/qing-bao-xue.html">情報学</a></li>
-	<li><a href="category/rna.html">RNA</a></li>
-	<li><a href="category/sohuto.html">ソフト</a></li>
-</ul>
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング">
+                                        CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2021-01-21T22:36:00+09:00">
+        <i class="icon-calendar"></i>Thu 21 January 2021
+</abbr>
+<span class="label">By</span>
+<a href="/author/1ut.html"><i class="icon-user"></i>1ut</a>
+<span class="label">Category</span>
+<a href="/category/sohuto.html"><i class="icon-folder-open"></i>ソフト</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/refmac5.html"><i class="icon-tag"></i>refmac5</a>
+	<a href="/tag/coot.html"><i class="icon-tag"></i>coot</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>導入</h1>
+<p>ダウンロード</p>
+<p><img alt="ccp4i download page" src="http://www.ccp4.ac.uk/download/#os=mac"></p>
+<h1>macbookでCootを拡大縮小する方法</h1>
+<p>XQartzに</p>
+<p><img alt="公式" src="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/docs/coot-faq.html#On-a-Mac-OSX-laptop-how-do-I-work-without-a-mouse_003f"></p>
+<h1>pdbファイルの分割(split)・結合（merge）・抽出(extract)</h1>
+<p>pdb_toolsが便利</p>
+<h2>インストール</h2>
+<div class="highlight"><pre><span></span><code><span class="err">pip install pdb-tools</span>
+</code></pre></div>
+
+<h2>複数のpdb fileをまとめる</h2>
+<div class="highlight"><pre><span></span><code><span class="n">pdb_merge</span> <span class="p">[</span><span class="n">input</span> <span class="n">files</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">[</span><span class="n">output</span> <span class="n">file</span><span class="p">]</span>
+</code></pre></div>
+
+<h2>塩基(residue)を抽出する</h2>
+<div class="highlight"><pre><span></span><code><span class="n">pdb_selres</span><span class="w"> </span><span class="o">-[</span><span class="n">resid</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">resid</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">step</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pdb</span><span class="w"> </span><span class="k">file</span><span class="o">&gt;</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">例</span><span class="w"></span>
+<span class="n">pdb_selres</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="err">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="err">:</span><span class="mi">30</span><span class="w"> </span><span class="mi">1</span><span class="n">CTF</span><span class="p">.</span><span class="n">pdb</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Extracts</span><span class="w"> </span><span class="n">residues</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">30</span><span class="w"></span>
+<span class="n">pdb_selres</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="err">:</span><span class="mi">10</span><span class="err">:</span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="n">CTF</span><span class="p">.</span><span class="n">pdb</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Extracts</span><span class="w"> </span><span class="k">every</span><span class="w"> </span><span class="mi">5</span><span class="n">th</span><span class="w"> </span><span class="n">residue</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+</code></pre></div>
+
+<h2>塩基(residue)を削除する</h2>
+<div class="highlight"><pre><span></span><code><span class="n">pdb_delres</span><span class="w"> </span><span class="o">-[</span><span class="n">resid</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">resid</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">step</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pdb</span><span class="w"> </span><span class="k">file</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+<h1>cootだけで特定の塩基だけを抽出する方法</h1>
+<p>cootでchange chain ID -&gt; Use Residue range -&gt; from to </p>
+<p>で新たにchainを作成</p>
+<p>その後メニューバーの</p>
+<p>Delete -&gt; chainで必要なchain以外消せる</p>
+<p>ソース</p>
+<p><img alt="researchgate" src="https://www.researchgate.net/post/How-to-import-and-merge-different-pdb-contents-into-one"></p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
         </div><!--/span-->
 
                 <div class="span3 well sidebar-nav" id="sidebar">
