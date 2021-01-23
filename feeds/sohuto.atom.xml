@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-21T22:38:12+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-21T22:38:12+09:00</published><updated>2021-01-21T22:38:12+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-01-23T19:53:23+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-23T19:53:23+09:00</published><updated>2021-01-23T19:53:23+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-23:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
 &lt;p&gt;ダウンロード&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ccp4i download page" src="http://www.ccp4.ac.uk/download/#os=mac"&gt;&lt;/p&gt;
 &lt;h1&gt;基本操作&lt;/h1&gt;
@@ -29,9 +29,11 @@ coot.pdb&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;複数のpdb fileをまとめる&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_merge&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_merge&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;pdb_keepcoord&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;pdb_tidy&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;https://github.com/haddocking/pdb-tools/issues/94&lt;/p&gt;
 &lt;h2&gt;塩基(residue)を抽出する&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pdb_selres&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;resid&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;file&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
@@ -50,7 +52,14 @@ coot.pdb&lt;/p&gt;
 &lt;p&gt;その後メニューバーの&lt;/p&gt;
 &lt;p&gt;Delete -&amp;gt; chainで必要なchain以外消せる&lt;/p&gt;
 &lt;p&gt;ソース&lt;/p&gt;
-&lt;p&gt;&lt;img alt="researchgate" src="https://www.researchgate.net/post/How-to-import-and-merge-different-pdb-contents-into-one"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="refmac5"></category><category term="coot"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-21T16:54:11+09:00</published><updated>2021-01-21T16:54:11+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="researchgate" src="https://www.researchgate.net/post/How-to-import-and-merge-different-pdb-contents-into-one"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="refmac5"></category><category term="coot"></category></entry><entry><title>pymolの使い方</title><link href="/pymolnoshi-ifang.html" rel="alternate"></link><published>2021-01-22T19:04:13+09:00</published><updated>2021-01-22T19:04:13+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-22:/pymolnoshi-ifang.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;断面図の作成方法&lt;/h1&gt;
+&lt;p&gt;ctrl + shift + click + スライド&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;スライド上下方向: 前側の断面を移動&lt;/li&gt;
+&lt;li&gt;スライド左右方向: 後側の断面を移動&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ソース&lt;/p&gt;
+&lt;p&gt;&lt;img alt="マウス操作" src="https://yoshitakamo.github.io/pymol-book/ch02/mouse.html"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="pymol"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-21T16:54:11+09:00</published><updated>2021-01-21T16:54:11+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
