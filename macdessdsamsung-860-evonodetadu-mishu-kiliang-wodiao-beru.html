@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>macでssd（samsung 860 evo）のデータ読み書き量を調べる</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="1ut">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="生物化学wiki ATOM Feed" />
+
+<meta name="google-site-verification" content="jyzMaF23aOn3AoFi-g-ke3ACi426Ti1_qqw26zASB8A" />
+  <body>
+  </body>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">生物化学wiki </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/category/qing-bao-ke-xue.html">
+						<i class="icon-folder-open icon-large"></i>情報科学
+					</a>
+                  </li>
+                  <li >
+                    <a href="/category/qing-bao-xue.html">
+						<i class="icon-folder-open icon-large"></i>情報学
+					</a>
+                  </li>
+                  <li >
+                    <a href="/category/rna.html">
+						<i class="icon-folder-open icon-large"></i>RNA
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="/category/sohuto.html">
+						<i class="icon-folder-open icon-large"></i>ソフト
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to macでssd（samsung 860 evo）のデータ読み書き量を調べる">
+                                        macでssd（samsung 860 evo）のデータ読み書き量を調べる
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2021-03-01T22:47:38+09:00">
+        <i class="icon-calendar"></i>Mon 01 March 2021
+</abbr>
+<span class="label">By</span>
+<a href="/author/1ut.html"><i class="icon-user"></i>1ut</a>
+<span class="label">Category</span>
+<a href="/category/sohuto.html"><i class="icon-folder-open"></i>ソフト</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/mac.html"><i class="icon-tag"></i>mac</a>
+	<a href="/tag/ssd.html"><i class="icon-tag"></i>ssd</a>
+	<a href="/tag/samsung.html"><i class="icon-tag"></i>samsung</a>
+</footer><!-- /.post-info -->                </div>
+                <p>WindowsのCrystal Disk Infoの代替</p>
+<h1>方法</h1>
+<ul>
+<li>smartmontoolsのインストール</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">brew install smartmontools</span>
+</code></pre></div>
+
+<ul>
+<li>ディスク一覧表示</li>
+</ul>
+<p>Macintosh HDを含む物をssdと判断した.
+/dev/disk0など.</p>
+<div class="highlight"><pre><span></span><code><span class="err">diskutil list</span>
+</code></pre></div>
+
+<ul>
+<li>S.M.A.R.T.情報確認</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">smartctl -a /dev/disk0</span>
+</code></pre></div>
+
+<p>表示された結果</p>
+<div class="highlight"><pre><span></span><code><span class="n">smartctl</span> <span class="mi">7</span><span class="p">.</span><span class="mi">1</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="n">r5022</span> <span class="p">[</span><span class="n">Darwin</span> <span class="mi">17</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="n">x86_64</span><span class="p">]</span> <span class="p">(</span><span class="k">local</span> <span class="n">build</span><span class="p">)</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="k">C</span><span class="p">)</span> <span class="mi">2002</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span> <span class="n">Bruce</span> <span class="n">Allen</span><span class="p">,</span> <span class="n">Christian</span> <span class="n">Franke</span><span class="p">,</span> <span class="n">www</span><span class="p">.</span><span class="n">smartmontools</span><span class="p">.</span><span class="n">org</span>
+
+<span class="o">===</span> <span class="k">START</span> <span class="k">OF</span> <span class="n">INFORMATION</span> <span class="n">SECTION</span> <span class="o">===</span>
+<span class="n">Model</span> <span class="n">Family</span><span class="p">:</span>     <span class="n">Samsung</span> <span class="n">based</span> <span class="n">SSDs</span>
+<span class="n">Device</span> <span class="n">Model</span><span class="p">:</span>     <span class="n">Samsung</span> <span class="n">SSD</span> <span class="mi">860</span> <span class="n">EVO</span> <span class="mi">500</span><span class="n">GB</span>
+<span class="nb">Serial</span> <span class="nb">Number</span><span class="p">:</span>    <span class="n">S4FNNF0MA08543Y</span>
+<span class="n">LU</span> <span class="n">WWN</span> <span class="n">Device</span> <span class="n">Id</span><span class="p">:</span> <span class="mi">5</span> <span class="mi">002538</span> <span class="n">e49a1f4eb</span>
+<span class="n">Firmware</span> <span class="k">Version</span><span class="p">:</span> <span class="n">RVT03B6Q</span>
+<span class="k">User</span> <span class="n">Capacity</span><span class="p">:</span>    <span class="mi">500</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">862</span><span class="p">,</span><span class="mi">016</span> <span class="n">bytes</span> <span class="p">[</span><span class="mi">500</span> <span class="n">GB</span><span class="p">]</span>
+<span class="n">Sector</span> <span class="k">Size</span><span class="p">:</span>      <span class="mi">512</span> <span class="n">bytes</span> <span class="n">logical</span><span class="o">/</span><span class="n">physical</span>
+<span class="n">Rotation</span> <span class="n">Rate</span><span class="p">:</span>    <span class="n">Solid</span> <span class="k">State</span> <span class="n">Device</span>
+<span class="n">Form</span> <span class="n">Factor</span><span class="p">:</span>      <span class="mi">2</span><span class="p">.</span><span class="mi">5</span> <span class="n">inches</span>
+<span class="n">Device</span> <span class="k">is</span><span class="p">:</span>        <span class="k">In</span> <span class="n">smartctl</span> <span class="k">database</span> <span class="p">[</span><span class="k">for</span> <span class="n">details</span> <span class="n">use</span><span class="p">:</span> <span class="o">-</span><span class="n">P</span> <span class="k">show</span><span class="p">]</span>
+<span class="n">ATA</span> <span class="k">Version</span> <span class="k">is</span><span class="p">:</span>   <span class="n">ACS</span><span class="o">-</span><span class="mi">4</span> <span class="n">T13</span><span class="o">/</span><span class="n">BSR</span> <span class="n">INCITS</span> <span class="mi">529</span> <span class="n">revision</span> <span class="mi">5</span>
+<span class="n">SATA</span> <span class="k">Version</span> <span class="k">is</span><span class="p">:</span>  <span class="n">SATA</span> <span class="mi">3</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">.</span><span class="mi">0</span> <span class="n">Gb</span><span class="o">/</span><span class="n">s</span> <span class="p">(</span><span class="k">current</span><span class="p">:</span> <span class="mi">6</span><span class="p">.</span><span class="mi">0</span> <span class="n">Gb</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="k">Local</span> <span class="k">Time</span> <span class="k">is</span><span class="p">:</span>    <span class="n">Mon</span> <span class="n">Mar</span>  <span class="mi">1</span> <span class="mi">22</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">30</span> <span class="mi">2021</span> <span class="n">JST</span>
+<span class="n">SMART</span> <span class="n">support</span> <span class="k">is</span><span class="p">:</span> <span class="n">Available</span> <span class="o">-</span> <span class="n">device</span> <span class="n">has</span> <span class="n">SMART</span> <span class="n">capability</span><span class="p">.</span>
+<span class="n">SMART</span> <span class="n">support</span> <span class="k">is</span><span class="p">:</span> <span class="n">Enabled</span>
+
+<span class="o">===</span> <span class="k">START</span> <span class="k">OF</span> <span class="k">READ</span> <span class="n">SMART</span> <span class="k">DATA</span> <span class="n">SECTION</span> <span class="o">===</span>
+<span class="n">SMART</span> <span class="n">overall</span><span class="o">-</span><span class="n">health</span> <span class="k">self</span><span class="o">-</span><span class="n">assessment</span> <span class="n">test</span> <span class="k">result</span><span class="p">:</span> <span class="n">PASSED</span>
+
+<span class="k">General</span> <span class="n">SMART</span> <span class="k">Values</span><span class="p">:</span>
+<span class="n">Offline</span> <span class="k">data</span> <span class="n">collection</span> <span class="n">status</span><span class="p">:</span>  <span class="p">(</span><span class="mi">0</span><span class="n">x00</span><span class="p">)</span> <span class="n">Offline</span> <span class="k">data</span> <span class="n">collection</span> <span class="n">activity</span>
+                    <span class="n">was</span> <span class="n">never</span> <span class="n">started</span><span class="p">.</span>
+                    <span class="n">Auto</span> <span class="n">Offline</span> <span class="k">Data</span> <span class="n">Collection</span><span class="p">:</span> <span class="n">Disabled</span><span class="p">.</span>
+<span class="k">Self</span><span class="o">-</span><span class="n">test</span> <span class="n">execution</span> <span class="n">status</span><span class="p">:</span>      <span class="p">(</span>   <span class="mi">0</span><span class="p">)</span> <span class="n">The</span> <span class="n">previous</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="k">routine</span> <span class="n">completed</span>
+                    <span class="k">without</span> <span class="n">error</span> <span class="k">or</span> <span class="k">no</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="n">has</span> <span class="n">ever</span> 
+                    <span class="n">been</span> <span class="n">run</span><span class="p">.</span>
+<span class="n">Total</span> <span class="k">time</span> <span class="k">to</span> <span class="n">complete</span> <span class="n">Offline</span> 
+<span class="k">data</span> <span class="n">collection</span><span class="p">:</span>        <span class="p">(</span>    <span class="mi">0</span><span class="p">)</span> <span class="n">seconds</span><span class="p">.</span>
+<span class="n">Offline</span> <span class="k">data</span> <span class="n">collection</span>
+<span class="n">capabilities</span><span class="p">:</span>            <span class="p">(</span><span class="mi">0</span><span class="n">x53</span><span class="p">)</span> <span class="n">SMART</span> <span class="k">execute</span> <span class="n">Offline</span> <span class="k">immediate</span><span class="p">.</span>
+                    <span class="n">Auto</span> <span class="n">Offline</span> <span class="k">data</span> <span class="n">collection</span> <span class="k">on</span><span class="o">/</span><span class="k">off</span> <span class="n">support</span><span class="p">.</span>
+                    <span class="n">Suspend</span> <span class="n">Offline</span> <span class="n">collection</span> <span class="n">upon</span> <span class="k">new</span>
+                    <span class="n">command</span><span class="p">.</span>
+                    <span class="k">No</span> <span class="n">Offline</span> <span class="n">surface</span> <span class="n">scan</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="k">Self</span><span class="o">-</span><span class="n">test</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="k">No</span> <span class="n">Conveyance</span> <span class="k">Self</span><span class="o">-</span><span class="n">test</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="n">Selective</span> <span class="k">Self</span><span class="o">-</span><span class="n">test</span> <span class="n">supported</span><span class="p">.</span>
+<span class="n">SMART</span> <span class="n">capabilities</span><span class="p">:</span>            <span class="p">(</span><span class="mi">0</span><span class="n">x0003</span><span class="p">)</span> <span class="n">Saves</span> <span class="n">SMART</span> <span class="k">data</span> <span class="k">before</span> <span class="n">entering</span>
+                    <span class="n">power</span><span class="o">-</span><span class="n">saving</span> <span class="k">mode</span><span class="p">.</span>
+                    <span class="n">Supports</span> <span class="n">SMART</span> <span class="n">auto</span> <span class="n">save</span> <span class="n">timer</span><span class="p">.</span>
+<span class="n">Error</span> <span class="n">logging</span> <span class="n">capability</span><span class="p">:</span>        <span class="p">(</span><span class="mi">0</span><span class="n">x01</span><span class="p">)</span> <span class="n">Error</span> <span class="n">logging</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="k">General</span> <span class="n">Purpose</span> <span class="n">Logging</span> <span class="n">supported</span><span class="p">.</span>
+<span class="n">Short</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="k">routine</span> 
+<span class="n">recommended</span> <span class="n">polling</span> <span class="k">time</span><span class="p">:</span>    <span class="p">(</span>   <span class="mi">2</span><span class="p">)</span> <span class="n">minutes</span><span class="p">.</span>
+<span class="n">Extended</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="k">routine</span>
+<span class="n">recommended</span> <span class="n">polling</span> <span class="k">time</span><span class="p">:</span>    <span class="p">(</span>  <span class="mi">85</span><span class="p">)</span> <span class="n">minutes</span><span class="p">.</span>
+<span class="n">SCT</span> <span class="n">capabilities</span><span class="p">:</span>          <span class="p">(</span><span class="mi">0</span><span class="n">x003d</span><span class="p">)</span> <span class="n">SCT</span> <span class="n">Status</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="n">SCT</span> <span class="n">Error</span> <span class="n">Recovery</span> <span class="n">Control</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="n">SCT</span> <span class="n">Feature</span> <span class="n">Control</span> <span class="n">supported</span><span class="p">.</span>
+                    <span class="n">SCT</span> <span class="k">Data</span> <span class="k">Table</span> <span class="n">supported</span><span class="p">.</span>
+
+<span class="n">SMART</span> <span class="n">Attributes</span> <span class="k">Data</span> <span class="k">Structure</span> <span class="n">revision</span> <span class="nb">number</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Vendor</span> <span class="k">Specific</span> <span class="n">SMART</span> <span class="n">Attributes</span> <span class="k">with</span> <span class="n">Thresholds</span><span class="p">:</span>
+<span class="n">ID</span><span class="o">#</span> <span class="n">ATTRIBUTE_NAME</span>          <span class="n">FLAG</span>     <span class="n">VALUE</span> <span class="n">WORST</span> <span class="n">THRESH</span> <span class="k">TYPE</span>      <span class="n">UPDATED</span>  <span class="n">WHEN_FAILED</span> <span class="n">RAW_VALUE</span>
+  <span class="mi">5</span> <span class="n">Reallocated_Sector_Ct</span>   <span class="mi">0</span><span class="n">x0033</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">010</span>    <span class="n">Pre</span><span class="o">-</span><span class="n">fail</span>  <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+  <span class="mi">9</span> <span class="n">Power_On_Hours</span>          <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">098</span>   <span class="mi">098</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">6742</span>
+ <span class="mi">12</span> <span class="n">Power_Cycle_Count</span>       <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">098</span>   <span class="mi">098</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">1921</span>
+<span class="mi">177</span> <span class="n">Wear_Leveling_Count</span>     <span class="mi">0</span><span class="n">x0013</span>   <span class="mi">099</span>   <span class="mi">099</span>   <span class="mi">000</span>    <span class="n">Pre</span><span class="o">-</span><span class="n">fail</span>  <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">17</span>
+<span class="mi">179</span> <span class="n">Used_Rsvd_Blk_Cnt_Tot</span>   <span class="mi">0</span><span class="n">x0013</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">010</span>    <span class="n">Pre</span><span class="o">-</span><span class="n">fail</span>  <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">181</span> <span class="n">Program_Fail_Cnt_Total</span>  <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">010</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">182</span> <span class="n">Erase_Fail_Count_Total</span>  <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">010</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">183</span> <span class="n">Runtime_Bad_Block</span>       <span class="mi">0</span><span class="n">x0013</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">010</span>    <span class="n">Pre</span><span class="o">-</span><span class="n">fail</span>  <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">187</span> <span class="n">Uncorrectable_Error_Cnt</span> <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">190</span> <span class="n">Airflow_Temperature_Cel</span> <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">059</span>   <span class="mi">051</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">41</span>
+<span class="mi">195</span> <span class="n">ECC_Error_Rate</span>          <span class="mi">0</span><span class="n">x001a</span>   <span class="mi">200</span>   <span class="mi">200</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">199</span> <span class="n">CRC_Error_Count</span>         <span class="mi">0</span><span class="n">x003e</span>   <span class="mi">100</span>   <span class="mi">100</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">0</span>
+<span class="mi">235</span> <span class="n">POR_Recovery_Count</span>      <span class="mi">0</span><span class="n">x0012</span>   <span class="mi">099</span>   <span class="mi">099</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">18</span>
+<span class="mi">241</span> <span class="n">Total_LBAs_Written</span>      <span class="mi">0</span><span class="n">x0032</span>   <span class="mi">099</span>   <span class="mi">099</span>   <span class="mi">000</span>    <span class="n">Old_age</span>   <span class="n">Always</span>       <span class="o">-</span>       <span class="mi">25405813254</span>
+
+<span class="n">SMART</span> <span class="n">Error</span> <span class="n">Log</span> <span class="k">Version</span><span class="p">:</span> <span class="mi">1</span>
+<span class="k">No</span> <span class="n">Errors</span> <span class="n">Logged</span>
+
+<span class="n">SMART</span> <span class="k">Self</span><span class="o">-</span><span class="n">test</span> <span class="n">log</span> <span class="k">structure</span> <span class="n">revision</span> <span class="nb">number</span> <span class="mi">1</span>
+<span class="k">No</span> <span class="k">self</span><span class="o">-</span><span class="n">tests</span> <span class="n">have</span> <span class="n">been</span> <span class="n">logged</span><span class="p">.</span>  <span class="p">[</span><span class="k">To</span> <span class="n">run</span> <span class="k">self</span><span class="o">-</span><span class="n">tests</span><span class="p">,</span> <span class="n">use</span><span class="p">:</span> <span class="n">smartctl</span> <span class="o">-</span><span class="n">t</span><span class="p">]</span>
+
+<span class="n">SMART</span> <span class="n">Selective</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="n">log</span> <span class="k">data</span> <span class="k">structure</span> <span class="n">revision</span> <span class="nb">number</span> <span class="mi">1</span>
+ <span class="n">SPAN</span>  <span class="n">MIN_LBA</span>  <span class="n">MAX_LBA</span>  <span class="n">CURRENT_TEST_STATUS</span>
+    <span class="mi">1</span>        <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">Not_testing</span>
+    <span class="mi">2</span>        <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">Not_testing</span>
+    <span class="mi">3</span>        <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">Not_testing</span>
+    <span class="mi">4</span>        <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">Not_testing</span>
+    <span class="mi">5</span>        <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">Not_testing</span>
+  <span class="mi">256</span>        <span class="mi">0</span>    <span class="mi">65535</span>  <span class="n">Read_scanning</span> <span class="n">was</span> <span class="n">never</span> <span class="n">started</span>
+<span class="n">Selective</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="n">flags</span> <span class="p">(</span><span class="mi">0</span><span class="n">x0</span><span class="p">):</span>
+  <span class="k">After</span> <span class="n">scanning</span> <span class="n">selected</span> <span class="n">spans</span><span class="p">,</span> <span class="k">do</span> <span class="k">NOT</span> <span class="k">read</span><span class="o">-</span><span class="n">scan</span> <span class="n">remainder</span> <span class="k">of</span> <span class="n">disk</span><span class="p">.</span>
+<span class="k">If</span> <span class="n">Selective</span> <span class="k">self</span><span class="o">-</span><span class="n">test</span> <span class="k">is</span> <span class="n">pending</span> <span class="k">on</span> <span class="n">power</span><span class="o">-</span><span class="n">up</span><span class="p">,</span> <span class="n">resume</span> <span class="k">after</span> <span class="mi">0</span> <span class="k">minute</span> <span class="n">delay</span><span class="p">.</span>
+</code></pre></div>
+
+<p>Total_LBAs_Written（書き込み量）は25405813254</p>
+<ul>
+<li>耐用年数の計算</li>
+</ul>
+<p>サムスンのSSDのS.M.A.R.T.情報は2^21倍するとGb表示になる</p>
+<p>計算すると 12114　GB = 12 TBとなった。</p>
+<p>https://serverfault.com/questions/992698/unit-for-total-lbas-written-in-smart-data</p>
+<p>寿命は300 TBなのでまだ余裕があることを確認。</p>
+<p>https://www.relaxedtech.com/reviews/samsung/860-evo/1</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="https://github.com/1ut"><i class="icon-external-link"></i>Github</a></li>
+    <li><a href="https://www.reddit.com/user/CytoNeko"><i class="icon-external-link"></i>Reddit</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/qing-bao-ke-xue.html">
+    <i class="icon-folder-open icon-large"></i>情報科学
+</a>
+</li>
+<li>
+<a href="/category/qing-bao-xue.html">
+    <i class="icon-folder-open icon-large"></i>情報学
+</a>
+</li>
+<li>
+<a href="/category/rna.html">
+    <i class="icon-folder-open icon-large"></i>RNA
+</a>
+</li>
+<li>
+<a href="/category/sohuto.html">
+    <i class="icon-folder-open icon-large"></i>ソフト
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-[<pelican.contents.Article object at 0x10da7cb50>, <pelican.contents.Article object at 0x10da62990>, <pelican.contents.Article object at 0x10cab8950>, <pelican.contents.Article object at 0x10d8f63d0>, <pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/mac.html">
+        <i class="icon-tag icon-large"></i>mac
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da7cb50>]">
+    <a href="/tag/ssd.html">
+        <i class="icon-tag icon-large"></i>ssd
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da7cb50>]">
+    <a href="/tag/samsung.html">
+        <i class="icon-tag icon-large"></i>samsung
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10c840350>]">
+    <a href="/tag/c.html">
+        <i class="icon-tag icon-large"></i>c++
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da62990>]">
+    <a href="/tag/emacs.html">
+        <i class="icon-tag icon-large"></i>emacs
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da62990>, <pelican.contents.Article object at 0x10d9686d0>]">
+    <a href="/tag/vim.html">
+        <i class="icon-tag icon-large"></i>vim
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da62990>]">
+    <a href="/tag/kibaindo.html">
+        <i class="icon-tag icon-large"></i>キーバインド
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da62990>]">
+    <a href="/tag/jj.html">
+        <i class="icon-tag icon-large"></i>jj
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9f3b10>]">
+    <a href="/tag/perl.html">
+        <i class="icon-tag icon-large"></i>perl
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9f3b10>]">
+    <a href="/tag/wanraina.html">
+        <i class="icon-tag icon-large"></i>ワンライナー
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d977a10>, <pelican.contents.Article object at 0x10d8f63d0>]">
+    <a href="/tag/gromacs.html">
+        <i class="icon-tag icon-large"></i>gromacs
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d977a10>]">
+    <a href="/tag/ri-ben-yu.html">
+        <i class="icon-tag icon-large"></i>日本語
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d977a10>]">
+    <a href="/tag/chiyutoriaru.html">
+        <i class="icon-tag icon-large"></i>チュートリアル
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d977a10>]">
+    <a href="/tag/rizochimu.html">
+        <i class="icon-tag icon-large"></i>リゾチーム
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9b4f50>]">
+    <a href="/tag/refmac5.html">
+        <i class="icon-tag icon-large"></i>refmac5
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9b4f50>]">
+    <a href="/tag/coot.html">
+        <i class="icon-tag icon-large"></i>coot
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da413d0>]">
+    <a href="/tag/pymol.html">
+        <i class="icon-tag icon-large"></i>pymol
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10cab8950>]">
+    <a href="/tag/xmgrace.html">
+        <i class="icon-tag icon-large"></i>xmgrace
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10cab8950>]">
+    <a href="/tag/grace.html">
+        <i class="icon-tag icon-large"></i>grace
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10cab8950>]">
+    <a href="/tag/x11.html">
+        <i class="icon-tag icon-large"></i>x11
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10cab8950>]">
+    <a href="/tag/xwindow.html">
+        <i class="icon-tag icon-large"></i>xwindow
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10cab8950>]">
+    <a href="/tag/xquartz.html">
+        <i class="icon-tag icon-large"></i>xquartz
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9682d0>]">
+    <a href="/tag/que-lu-wen-fa.html">
+        <i class="icon-tag icon-large"></i>確率文法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9682d0>]">
+    <a href="/tag/que-lu-wen-mo-zi-you-wen-fa.html">
+        <i class="icon-tag icon-large"></i>確率文脈自由文法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9a2610>]">
+    <a href="/tag/zheng-gui-wen-fa.html">
+        <i class="icon-tag icon-large"></i>正規文法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9a2610>]">
+    <a href="/tag/wen-mo-zi-you-wen-fa.html">
+        <i class="icon-tag icon-large"></i>文脈自由文法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10daa9c50>]">
+    <a href="/tag/nei-ce-arugorizumu.html">
+        <i class="icon-tag icon-large"></i>内側アルゴリズム
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10daa9c50>, <pelican.contents.Article object at 0x10da66b90>]">
+    <a href="/tag/chiyomusukibiao-zhun-xing.html">
+        <i class="icon-tag icon-large"></i>チョムスキー標準形
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da66b90>]">
+    <a href="/tag/bian-xing-wen-fa.html">
+        <i class="icon-tag icon-large"></i>変形文法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d8f67d0>]">
+    <a href="/tag/chiyomusukijie-ceng.html">
+        <i class="icon-tag icon-large"></i>チョムスキー階層
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d8f67d0>]">
+    <a href="/tag/otomaton.html">
+        <i class="icon-tag icon-large"></i>オートマトン
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d978c10>]">
+    <a href="/tag/vscode.html">
+        <i class="icon-tag icon-large"></i>vscode
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d978c10>]">
+    <a href="/tag/bibtex.html">
+        <i class="icon-tag icon-large"></i>bibtex
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d978c10>]">
+    <a href="/tag/markdown.html">
+        <i class="icon-tag icon-large"></i>markdown
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d978c10>]">
+    <a href="/tag/latex.html">
+        <i class="icon-tag icon-large"></i>latex
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da77f90>]">
+    <a href="/tag/celery.html">
+        <i class="icon-tag icon-large"></i>celery
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da77f90>]">
+    <a href="/tag/python.html">
+        <i class="icon-tag icon-large"></i>python
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da77f90>]">
+    <a href="/tag/rabbitmq.html">
+        <i class="icon-tag icon-large"></i>rabbitmq
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10da77f90>]">
+    <a href="/tag/flower.html">
+        <i class="icon-tag icon-large"></i>flower
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9b4950>]">
+    <a href="/tag/rnai.html">
+        <i class="icon-tag icon-large"></i>RNAi
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9b4950>]">
+    <a href="/tag/ohutagetsutoxiao-guo.html">
+        <i class="icon-tag icon-large"></i>オフターゲット効果
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9b4950>]">
+    <a href="/tag/sirna.html">
+        <i class="icon-tag icon-large"></i>siRNA
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9686d0>]">
+    <a href="/tag/pycharm.html">
+        <i class="icon-tag icon-large"></i>pycharm
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9686d0>]">
+    <a href="/tag/jjj.html">
+        <i class="icon-tag icon-large"></i>jjj
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d9686d0>]">
+    <a href="/tag/ideavim.html">
+        <i class="icon-tag icon-large"></i>ideavim
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10d8f63d0>]">
+    <a href="/tag/oakbridge.html">
+        <i class="icon-tag icon-large"></i>oakbridge
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/chimera.html">
+        <i class="icon-tag icon-large"></i>chimera
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/cao-zuo.html">
+        <i class="icon-tag icon-large"></i>操作
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/zumu.html">
+        <i class="icon-tag icon-large"></i>ズーム
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/kuo-da.html">
+        <i class="icon-tag icon-large"></i>拡大
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x10adf6ed0>]">
+    <a href="/tag/suo-xiao.html">
+        <i class="icon-tag icon-large"></i>縮小
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("G-T68W715JBR");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

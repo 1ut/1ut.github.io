@@ -1,5 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-23T19:53:23+09:00</updated><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-23T19:53:23+09:00</published><updated>2021-01-23T19:53:23+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-23:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-03-01T22:47:38+09:00</updated><entry><title>macでssd（samsung 860 evo）のデータ読み書き量を調べる</title><link href="/macdessdsamsung-860-evonodetadu-mishu-kiliang-wodiao-beru.html" rel="alternate"></link><published>2021-03-01T22:47:38+09:00</published><updated>2021-03-01T22:47:38+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-03-01:/macdessdsamsung-860-evonodetadu-mishu-kiliang-wodiao-beru.html</id><summary type="html"></summary><content type="html">&lt;p&gt;WindowsのCrystal Disk Infoの代替&lt;/p&gt;
+&lt;h1&gt;方法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;smartmontoolsのインストール&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install smartmontools&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ディスク一覧表示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Macintosh HDを含む物をssdと判断した.
+/dev/disk0など.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;diskutil list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;S.M.A.R.T.情報確認&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;smartctl -a /dev/disk0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;表示された結果&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;smartctl&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;2019&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;r5022&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Darwin&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;x86_64&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Copyright&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2002&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Bruce&lt;/span&gt; &lt;span class="n"&gt;Allen&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Christian&lt;/span&gt; &lt;span class="n"&gt;Franke&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;smartmontools&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;
+
+&lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="k"&gt;START&lt;/span&gt; &lt;span class="k"&gt;OF&lt;/span&gt; &lt;span class="n"&gt;INFORMATION&lt;/span&gt; &lt;span class="n"&gt;SECTION&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="n"&gt;Model&lt;/span&gt; &lt;span class="n"&gt;Family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;     &lt;span class="n"&gt;Samsung&lt;/span&gt; &lt;span class="n"&gt;based&lt;/span&gt; &lt;span class="n"&gt;SSDs&lt;/span&gt;
+&lt;span class="n"&gt;Device&lt;/span&gt; &lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;     &lt;span class="n"&gt;Samsung&lt;/span&gt; &lt;span class="n"&gt;SSD&lt;/span&gt; &lt;span class="mi"&gt;860&lt;/span&gt; &lt;span class="n"&gt;EVO&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="n"&gt;GB&lt;/span&gt;
+&lt;span class="nb"&gt;Serial&lt;/span&gt; &lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="n"&gt;S4FNNF0MA08543Y&lt;/span&gt;
+&lt;span class="n"&gt;LU&lt;/span&gt; &lt;span class="n"&gt;WWN&lt;/span&gt; &lt;span class="n"&gt;Device&lt;/span&gt; &lt;span class="n"&gt;Id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;002538&lt;/span&gt; &lt;span class="n"&gt;e49a1f4eb&lt;/span&gt;
+&lt;span class="n"&gt;Firmware&lt;/span&gt; &lt;span class="k"&gt;Version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;RVT03B6Q&lt;/span&gt;
+&lt;span class="k"&gt;User&lt;/span&gt; &lt;span class="n"&gt;Capacity&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;107&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;862&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;016&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="n"&gt;GB&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;Sector&lt;/span&gt; &lt;span class="k"&gt;Size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;      &lt;span class="mi"&gt;512&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;logical&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;physical&lt;/span&gt;
+&lt;span class="n"&gt;Rotation&lt;/span&gt; &lt;span class="n"&gt;Rate&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="n"&gt;Solid&lt;/span&gt; &lt;span class="k"&gt;State&lt;/span&gt; &lt;span class="n"&gt;Device&lt;/span&gt;
+&lt;span class="n"&gt;Form&lt;/span&gt; &lt;span class="n"&gt;Factor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;      &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;inches&lt;/span&gt;
+&lt;span class="n"&gt;Device&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;        &lt;span class="k"&gt;In&lt;/span&gt; &lt;span class="n"&gt;smartctl&lt;/span&gt; &lt;span class="k"&gt;database&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;details&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;ATA&lt;/span&gt; &lt;span class="k"&gt;Version&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;   &lt;span class="n"&gt;ACS&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;T13&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;BSR&lt;/span&gt; &lt;span class="n"&gt;INCITS&lt;/span&gt; &lt;span class="mi"&gt;529&lt;/span&gt; &lt;span class="n"&gt;revision&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;SATA&lt;/span&gt; &lt;span class="k"&gt;Version&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="n"&gt;SATA&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;Gb&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;current&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;Gb&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;Local&lt;/span&gt; &lt;span class="k"&gt;Time&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="n"&gt;Mon&lt;/span&gt; &lt;span class="n"&gt;Mar&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;2021&lt;/span&gt; &lt;span class="n"&gt;JST&lt;/span&gt;
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;support&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Available&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;capability&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;support&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Enabled&lt;/span&gt;
+
+&lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="k"&gt;START&lt;/span&gt; &lt;span class="k"&gt;OF&lt;/span&gt; &lt;span class="k"&gt;READ&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="k"&gt;DATA&lt;/span&gt; &lt;span class="n"&gt;SECTION&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;overall&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;health&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;assessment&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PASSED&lt;/span&gt;
+
+&lt;span class="k"&gt;General&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="k"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="n"&gt;activity&lt;/span&gt;
+                    &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="n"&gt;started&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;Auto&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;Data&lt;/span&gt; &lt;span class="n"&gt;Collection&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Disabled&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="k"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;execution&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;      &lt;span class="p"&gt;(&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;routine&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt;
+                    &lt;span class="k"&gt;without&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="k"&gt;no&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;ever&lt;/span&gt; 
+                    &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Total&lt;/span&gt; &lt;span class="k"&gt;time&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;complete&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; 
+&lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;        &lt;span class="p"&gt;(&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;
+&lt;span class="n"&gt;capabilities&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x53&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="k"&gt;execute&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;immediate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;Auto&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;off&lt;/span&gt; &lt;span class="n"&gt;support&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;Suspend&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="n"&gt;upon&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt;
+                    &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="k"&gt;No&lt;/span&gt; &lt;span class="n"&gt;Offline&lt;/span&gt; &lt;span class="n"&gt;surface&lt;/span&gt; &lt;span class="n"&gt;scan&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="k"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="k"&gt;No&lt;/span&gt; &lt;span class="n"&gt;Conveyance&lt;/span&gt; &lt;span class="k"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;Selective&lt;/span&gt; &lt;span class="k"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;capabilities&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;            &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0003&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Saves&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="k"&gt;before&lt;/span&gt; &lt;span class="n"&gt;entering&lt;/span&gt;
+                    &lt;span class="n"&gt;power&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;saving&lt;/span&gt; &lt;span class="k"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;Supports&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;save&lt;/span&gt; &lt;span class="n"&gt;timer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;capability&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x01&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="k"&gt;General&lt;/span&gt; &lt;span class="n"&gt;Purpose&lt;/span&gt; &lt;span class="n"&gt;Logging&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;routine&lt;/span&gt; 
+&lt;span class="n"&gt;recommended&lt;/span&gt; &lt;span class="n"&gt;polling&lt;/span&gt; &lt;span class="k"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="p"&gt;(&lt;/span&gt;   &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;minutes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Extended&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;routine&lt;/span&gt;
+&lt;span class="n"&gt;recommended&lt;/span&gt; &lt;span class="n"&gt;polling&lt;/span&gt; &lt;span class="k"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="p"&gt;(&lt;/span&gt;  &lt;span class="mi"&gt;85&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;minutes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;SCT&lt;/span&gt; &lt;span class="n"&gt;capabilities&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x003d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;SCT&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;SCT&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="n"&gt;Recovery&lt;/span&gt; &lt;span class="n"&gt;Control&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;SCT&lt;/span&gt; &lt;span class="n"&gt;Feature&lt;/span&gt; &lt;span class="n"&gt;Control&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+                    &lt;span class="n"&gt;SCT&lt;/span&gt; &lt;span class="k"&gt;Data&lt;/span&gt; &lt;span class="k"&gt;Table&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;Attributes&lt;/span&gt; &lt;span class="k"&gt;Data&lt;/span&gt; &lt;span class="k"&gt;Structure&lt;/span&gt; &lt;span class="n"&gt;revision&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;Vendor&lt;/span&gt; &lt;span class="k"&gt;Specific&lt;/span&gt; &lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;Attributes&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;Thresholds&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;ID&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ATTRIBUTE_NAME&lt;/span&gt;          &lt;span class="n"&gt;FLAG&lt;/span&gt;     &lt;span class="n"&gt;VALUE&lt;/span&gt; &lt;span class="n"&gt;WORST&lt;/span&gt; &lt;span class="n"&gt;THRESH&lt;/span&gt; &lt;span class="k"&gt;TYPE&lt;/span&gt;      &lt;span class="n"&gt;UPDATED&lt;/span&gt;  &lt;span class="n"&gt;WHEN_FAILED&lt;/span&gt; &lt;span class="n"&gt;RAW_VALUE&lt;/span&gt;
+  &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;Reallocated_Sector_Ct&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0033&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;010&lt;/span&gt;    &lt;span class="n"&gt;Pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fail&lt;/span&gt;  &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+  &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="n"&gt;Power_On_Hours&lt;/span&gt;          &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;098&lt;/span&gt;   &lt;span class="mi"&gt;098&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;6742&lt;/span&gt;
+ &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="n"&gt;Power_Cycle_Count&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;098&lt;/span&gt;   &lt;span class="mi"&gt;098&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;1921&lt;/span&gt;
+&lt;span class="mi"&gt;177&lt;/span&gt; &lt;span class="n"&gt;Wear_Leveling_Count&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0013&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fail&lt;/span&gt;  &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;17&lt;/span&gt;
+&lt;span class="mi"&gt;179&lt;/span&gt; &lt;span class="n"&gt;Used_Rsvd_Blk_Cnt_Tot&lt;/span&gt;   &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0013&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;010&lt;/span&gt;    &lt;span class="n"&gt;Pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fail&lt;/span&gt;  &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;181&lt;/span&gt; &lt;span class="n"&gt;Program_Fail_Cnt_Total&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;010&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;182&lt;/span&gt; &lt;span class="n"&gt;Erase_Fail_Count_Total&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;010&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;183&lt;/span&gt; &lt;span class="n"&gt;Runtime_Bad_Block&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0013&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;010&lt;/span&gt;    &lt;span class="n"&gt;Pre&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fail&lt;/span&gt;  &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;187&lt;/span&gt; &lt;span class="n"&gt;Uncorrectable_Error_Cnt&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;190&lt;/span&gt; &lt;span class="n"&gt;Airflow_Temperature_Cel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;059&lt;/span&gt;   &lt;span class="mi"&gt;051&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;41&lt;/span&gt;
+&lt;span class="mi"&gt;195&lt;/span&gt; &lt;span class="n"&gt;ECC_Error_Rate&lt;/span&gt;          &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x001a&lt;/span&gt;   &lt;span class="mi"&gt;200&lt;/span&gt;   &lt;span class="mi"&gt;200&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;199&lt;/span&gt; &lt;span class="n"&gt;CRC_Error_Count&lt;/span&gt;         &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x003e&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;100&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;235&lt;/span&gt; &lt;span class="n"&gt;POR_Recovery_Count&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0012&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;18&lt;/span&gt;
+&lt;span class="mi"&gt;241&lt;/span&gt; &lt;span class="n"&gt;Total_LBAs_Written&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0032&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;099&lt;/span&gt;   &lt;span class="mi"&gt;000&lt;/span&gt;    &lt;span class="n"&gt;Old_age&lt;/span&gt;   &lt;span class="n"&gt;Always&lt;/span&gt;       &lt;span class="o"&gt;-&lt;/span&gt;       &lt;span class="mi"&gt;25405813254&lt;/span&gt;
+
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="n"&gt;Log&lt;/span&gt; &lt;span class="k"&gt;Version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;No&lt;/span&gt; &lt;span class="n"&gt;Errors&lt;/span&gt; &lt;span class="n"&gt;Logged&lt;/span&gt;
+
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="k"&gt;Self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="k"&gt;structure&lt;/span&gt; &lt;span class="n"&gt;revision&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;No&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;logged&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;To&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;smartctl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;SMART&lt;/span&gt; &lt;span class="n"&gt;Selective&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="k"&gt;structure&lt;/span&gt; &lt;span class="n"&gt;revision&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+ &lt;span class="n"&gt;SPAN&lt;/span&gt;  &lt;span class="n"&gt;MIN_LBA&lt;/span&gt;  &lt;span class="n"&gt;MAX_LBA&lt;/span&gt;  &lt;span class="n"&gt;CURRENT_TEST_STATUS&lt;/span&gt;
+    &lt;span class="mi"&gt;1&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="n"&gt;Not_testing&lt;/span&gt;
+    &lt;span class="mi"&gt;2&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="n"&gt;Not_testing&lt;/span&gt;
+    &lt;span class="mi"&gt;3&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="n"&gt;Not_testing&lt;/span&gt;
+    &lt;span class="mi"&gt;4&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="n"&gt;Not_testing&lt;/span&gt;
+    &lt;span class="mi"&gt;5&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="n"&gt;Not_testing&lt;/span&gt;
+  &lt;span class="mi"&gt;256&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;    &lt;span class="mi"&gt;65535&lt;/span&gt;  &lt;span class="n"&gt;Read_scanning&lt;/span&gt; &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="n"&gt;started&lt;/span&gt;
+&lt;span class="n"&gt;Selective&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;flags&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;x0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;After&lt;/span&gt; &lt;span class="n"&gt;scanning&lt;/span&gt; &lt;span class="n"&gt;selected&lt;/span&gt; &lt;span class="n"&gt;spans&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scan&lt;/span&gt; &lt;span class="n"&gt;remainder&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;disk&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="n"&gt;Selective&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;pending&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;power&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt; &lt;span class="k"&gt;after&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;minute&lt;/span&gt; &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Total_LBAs_Written（書き込み量）は25405813254&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;耐用年数の計算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;サムスンのSSDのS.M.A.R.T.情報は2^21倍するとGb表示になる&lt;/p&gt;
+&lt;p&gt;計算すると 12114　GB = 12 TBとなった。&lt;/p&gt;
+&lt;p&gt;https://serverfault.com/questions/992698/unit-for-total-lbas-written-in-smart-data&lt;/p&gt;
+&lt;p&gt;寿命は300 TBなのでまだ余裕があることを確認。&lt;/p&gt;
+&lt;p&gt;https://www.relaxedtech.com/reviews/samsung/860-evo/1&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="ssd"></category><category term="samsung"></category></entry><entry><title>C++めも</title><link href="/cmemo.html" rel="alternate"></link><published>2021-02-23T21:23:22+09:00</published><updated>2021-02-23T21:23:22+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-02-23:/cmemo.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;スニペット&lt;/h1&gt;
+&lt;p&gt;include&lt;/p&gt;
+&lt;h1&gt;””と''の違い&lt;/h1&gt;
+&lt;p&gt;「"」で囲われた文字列は、文字列が格納されたメモリのアドレスを意味する&lt;/p&gt;
+&lt;p&gt;「'」は文字列&lt;/p&gt;
+&lt;p&gt;出力 =&amp;gt; 「"」&lt;/p&gt;
+&lt;p&gt;文字列同士の比較 =&amp;gt; 「'」&lt;/p&gt;
+&lt;p&gt;string型 " "&lt;/p&gt;
+&lt;p&gt;char型 ' '&lt;/p&gt;
+&lt;h1&gt;vector&lt;/h1&gt;
+&lt;p&gt;vector&amp;lt;&amp;gt; スペース開けたらダメ&lt;/p&gt;
+&lt;h1&gt;struct&lt;/h1&gt;
+&lt;p&gt;最後に; をつける&lt;/p&gt;
+&lt;h1&gt;i++と++iの違い&lt;/h1&gt;
+&lt;p&gt;++i will increment the value of i, and then return the incremented value.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; i = 1;&lt;/span&gt;
+&lt;span class="err"&gt; j = ++i;&lt;/span&gt;
+&lt;span class="err"&gt; (i is 2, j is 2)&lt;/span&gt;
+&lt;span class="err"&gt;i++ will increment the value of i, but return the original value that i held before being incremented.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;```&lt;/span&gt;
+
+
+ &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;stackoverflow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;questions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24853&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;what&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;difference&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;between&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;and&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;
+
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;structure&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;struct product {
+  int weight;
+  double price;
+} ;&lt;/p&gt;
+&lt;p&gt;product apple;
+product banana, melon;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;struct product {
+  int weight;
+  double price;
+} apple, banana, melon;
+```&lt;/p&gt;
+&lt;p&gt;上のどちらも同じ意味&lt;/p&gt;
+&lt;h1&gt;listとvectorの違い&lt;/h1&gt;
+&lt;p&gt;listは[]で要素にアクセスすることができないが、vectorと違い要素の挿入と削除をO(1)でできる(vectorはO(n)かかる)&lt;/p&gt;
+&lt;h1&gt;M_PI&lt;/h1&gt;
+&lt;p&gt;円周率&lt;/p&gt;</content><category term="ソフト"></category><category term="c++"></category></entry><entry><title>emacsの代わりにvimキーバインドを使う</title><link href="/emacsnodai-warinivimkibaindowoshi-u.html" rel="alternate"></link><published>2021-02-08T21:32:14+09:00</published><updated>2021-02-08T21:32:14+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-02-08:/emacsnodai-warinivimkibaindowoshi-u.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;macのキーバインドとは&lt;/h1&gt;
+&lt;p&gt;デフォでは&lt;/p&gt;
+&lt;p&gt;ctrl + f ... 右移動&lt;/p&gt;
+&lt;p&gt;などemacsのキーバインドが元になっている&lt;/p&gt;
+&lt;p&gt;これをvimに準拠したものに変える&lt;/p&gt;
+&lt;h1&gt;インストールするもの&lt;/h1&gt;
+&lt;p&gt;Redditで以下のような投稿を見つけた&lt;/p&gt;
+&lt;p&gt;https://www.reddit.com/r/vim/comments/8tb5oz/added_a_basic_vim_normal_mode_to_systemwide_os_x/&lt;/p&gt;
+&lt;p&gt;github: &lt;/p&gt;
+&lt;p&gt;https://github.com/dbalatero/VimMode.spoon#quick-installation&lt;/p&gt;
+&lt;h1&gt;インストールする方法&lt;/h1&gt;
+&lt;p&gt;ターミナルで以下のコマンドを実行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bash &amp;lt;(curl -s https://raw.githubusercontent.com/dbalatero/VimMode.spoon/master/bin/installer)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;その後ApplicationにあるHammmerspoonを起動 =&amp;gt; reloadで動くようになった&lt;/p&gt;
+&lt;h1&gt;escキーバインドをjjに設定する方法&lt;/h1&gt;
+&lt;p&gt;~/.hammerspoon/init.luaに以下のように書き込む（上2行は既に存在）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;local&lt;/span&gt; &lt;span class="n"&gt;VimMode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadSpoon&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;VimMode&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;local&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;VimMode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;enterWithSequence&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;jj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;編集し終わったら&lt;/p&gt;
+&lt;p&gt;ApplicationにあるHammmerspoonを起動 =&amp;gt; reload&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="emacs"></category><category term="vim"></category><category term="キーバインド"></category><category term="jj"></category></entry><entry><title>perlワンライナー めも</title><link href="/perlwanraina-memo.html" rel="alternate"></link><published>2021-02-08T04:35:25+09:00</published><updated>2021-02-08T04:35:25+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-02-08:/perlwanraina-memo.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;基本形&lt;/h1&gt;
+&lt;p&gt;perl -e 'コマンド'&lt;/p&gt;
+&lt;h1&gt;一行ずつ処置&lt;/h1&gt;
+&lt;p&gt;オプション　-n&lt;/p&gt;
+&lt;h1&gt;フィールド分割&lt;/h1&gt;
+&lt;p&gt;オプション -a&lt;/p&gt;</content><category term="ソフト"></category><category term="perl"></category><category term="ワンライナー"></category></entry><entry><title>gromacsチュートリアル1 水中のリゾチーム 日本語</title><link href="/gromacschiyutoriaru1-shui-zhong-norizochimu-ri-ben-yu.html" rel="alternate"></link><published>2021-02-05T17:29:37+09:00</published><updated>2021-02-05T17:29:37+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-02-05:/gromacschiyutoriaru1-shui-zhong-norizochimu-ri-ben-yu.html</id><summary type="html"></summary><content type="html">&lt;p&gt;引用&lt;/p&gt;
+&lt;p&gt;http://www.mdtutorials.com/gmx/lysozyme/index.html&lt;/p&gt;
+&lt;h1&gt;gromacsのインストール&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install gromacs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Some GROMACS Basics&lt;/h1&gt;
+&lt;h2&gt;GROMACSのpdbファイルのダウンロード&lt;/h2&gt;
+&lt;p&gt;https://files.rcsb.org/download/1AKI.pdb&lt;/p&gt;
+&lt;h2&gt;pdbから水分子の除去&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;"HOH"行を除去&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;grep -v HOH 1aki.pdb &amp;gt; 1AKI_clean.pdb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;リゾチームとともに結晶化された水分子はgromacsのシミュレーションに不要なため、今回は除く。(自然状態で水分子との強固な結合がある分子や、水分子が活性を持ち機能する分子については除かないこと。)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;pdb2gmxの実行&lt;/h2&gt;
+&lt;p&gt;最初に力場にしたがって構造を調節する行程。
+必須ではなく、.groは正確性に欠けることもあるので、例えば.pdbをのちの行程に用いることもできる。&lt;/p&gt;
+&lt;p&gt;pdbファイルから以下のファイル（1AKI_processed.gro, topol.top, and posre.itp）を生成する&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;.top 
+topology。分子の位置関係を記述。
+非結合性のパラメーター（原子の種類と電荷）や結合性のパラメーター（結合、角度、二面角）を含む&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;.itp
+position restraints（分子位置の固定）のための情報。分子位置の固定は平衡化時に機能分子の構造が大規模に動かないようにするために行う。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;.gro 
+力場とその中にある原子の構造を示す。
+例えば、.pdbと比べるとH原子が付加されている。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;コマンドは以下。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;gmx pdb2gmx -f 1AKI_clean.pdb -o 1AKI_processed.gro -water spce&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;実行すると1-15番の力場からどれか選べと出るので15番のOPLSを選ぶ。&lt;/p&gt;
+&lt;p&gt;15: OPLS-AA/L all-atom force field (2001 aminoacid dihedrals)&lt;/p&gt;
+&lt;p&gt;以下補足&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;.pdbにコメントでMISSINGがないか注意 
+本来は存在するが結晶では見られなかった分子。gmxを生成できない。他のソフトによりモデリングが必要&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;動力学を適用できる分子
+gromacsは.rtpファイルによって力場が定義されている限定的な分子（タンパク質、拡散、補酵素）のみに適用可能。それ以外の分子には適用できない。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;オプションの意味&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;-f インプットファイル&lt;/p&gt;
+&lt;p&gt;-o アウトプットファイル&lt;/p&gt;
+&lt;p&gt;-water 使用するwaterのモデルの種類。select, none, spc, spce, tip3p, tip4p, tip5p, tips3pがある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;その他のオプション（よく使うもの）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;-ignh: Hを無視。NMRのデータに最適。&lt;/p&gt;
+&lt;p&gt;-ter: C末端またはN末端の電荷を自分で設定する&lt;/p&gt;
+&lt;p&gt;-inter: Glu, Asp, Lys, Arg, Hisの電荷を設定したり、どのCysがジスルフィド結合しているかを選んだりする&lt;/p&gt;
+&lt;h1&gt;Topology&lt;/h1&gt;
+&lt;h2&gt;topol.topの内容説明&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;quot;oplsaa.ff/forcefield.itp&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;これはOPLS-AA fieldのパラメータをコールしている&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;; Name       nrexcl&lt;/span&gt;
+&lt;span class="err"&gt;Protein_A    3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Protein_A: 分子名&lt;/p&gt;
+&lt;p&gt;nrexcl: There are 3 exclusions for bonded neighbors（詳しくはマニュアル参照）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[ atoms ]&lt;/span&gt;
+&lt;span class="c1"&gt;;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB&lt;/span&gt;
+&lt;span class="c1"&gt;; residue   1 LYS rtp LYSH q +2.0&lt;/span&gt;
+     &lt;span class="na"&gt;1   opls_287      1   LYS       N      1       -0.3    14.0067   ; qtot -0.3&lt;/span&gt;
+     &lt;span class="na"&gt;2   opls_290      1   LYS      H1      1       0.33      1.008   ; qtot 0.03&lt;/span&gt;
+     &lt;span class="na"&gt;3   opls_290      1   LYS      H2      1       0.33      1.008   ; qtot 0.36&lt;/span&gt;
+     &lt;span class="na"&gt;4   opls_290      1   LYS      H3      1       0.33      1.008   ; qtot 0.69&lt;/span&gt;
+     &lt;span class="na"&gt;5  opls_293B      1   LYS      CA      1       0.25     12.011   ; qtot 0.94&lt;/span&gt;
+     &lt;span class="na"&gt;6   opls_140      1   LYS      HA      1       0.06      1.008   ; qtot 1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;nr: 原子の番号&lt;/li&gt;
+&lt;li&gt;type: 原子の種類&lt;/li&gt;
+&lt;li&gt;resnr: アミノ酸残基の番号&lt;/li&gt;
+&lt;li&gt;residue: アミノ酸残基の名前&lt;/li&gt;
+&lt;li&gt;atom: 原子の名前&lt;/li&gt;
+&lt;li&gt;cgnr: charge groupの番号。charge groupとは整数電荷のunitを定義することで高速化に寄与している（?）&lt;/li&gt;
+&lt;li&gt;charge: 電荷&lt;/li&gt;
+&lt;li&gt;mass: 質量&lt;/li&gt;
+&lt;li&gt;typeB    chargeB      massB: 自由エネルギー摂動のための因子(?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;その後は [ bonds ], [ pairs ], [ angles ], [ dihedrals ]のセクションが続く（マニュアル参照）&lt;/p&gt;
+&lt;h2&gt;posre.itp の内容説明&lt;/h2&gt;
+&lt;p&gt;平衡化時に原子を動かないようにするために使われる力学的な定数を定義&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;Include&lt;/span&gt; &lt;span class="n"&gt;Position&lt;/span&gt; &lt;span class="n"&gt;restraint&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="cp"&gt;#ifdef POSRES&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;quot;posre.itp&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#endif&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="ソフト"></category><category term="gromacs"></category><category term="日本語"></category><category term="チュートリアル"></category><category term="リゾチーム"></category></entry><entry><title>CCP4i(refmac5とcoot)を使ったX線構造回折像からのタンパク質分子モデリング</title><link href="/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html" rel="alternate"></link><published>2021-01-23T19:53:23+09:00</published><updated>2021-01-23T19:53:23+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-23:/ccp4irefmac5tocootwoshi-tsutaxxian-gou-zao-hui-zhe-xiang-karanotanpakuzhi-fen-zi-moderingu.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;導入&lt;/h1&gt;
 &lt;p&gt;ダウンロード&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ccp4i download page" src="http://www.ccp4.ac.uk/download/#os=mac"&gt;&lt;/p&gt;
 &lt;h1&gt;基本操作&lt;/h1&gt;
