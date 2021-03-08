@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-03-08T23:51:02+09:00</updated><entry><title>jupyterlab でKiteにより自動補完をする</title><link href="/jupyterlab-dekiteniyorizi-dong-bu-wan-wosuru.html" rel="alternate"></link><published>2021-03-08T23:51:02+09:00</published><updated>2021-03-08T23:51:02+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-03-08:/jupyterlab-dekiteniyorizi-dong-bu-wan-wosuru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;jupyterlab にkiteをインストールしてできるようになること&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>生物化学wiki - ソフト</title><link href="/" rel="alternate"></link><link href="/feeds/sohuto.atom.xml" rel="self"></link><id>/</id><updated>2021-03-08T23:52:52+09:00</updated><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-03-08T23:52:52+09:00</published><updated>2021-03-08T23:52:52+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-03-08:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
+&lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;xmgraceのインストール&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install grace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;Xmgraceの起動&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;launchctl load -w /Library/LaunchAgents/org.macosforge.xquartz.startx.plist&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;を実行後再起動し&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;xmgrace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;で再起動&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ソース&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;xmgraceとコマンドを打ってもXquarzが起動せず&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Can&amp;#39;t open display Failed initializing GUI, exiting&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;というエラーが出ており、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DISPLAY=:0.0 xmgrace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;と変数DISPLAYを指定しても変わらなかった。&lt;/p&gt;
+&lt;p&gt;対処法を調べていたらこの投稿がヒットし、下のような解決策が見つかった。&lt;/p&gt;
+&lt;p&gt;https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/&lt;/p&gt;
+&lt;p&gt;公式には、&lt;/p&gt;
+&lt;p&gt;https://www.xquartz.org/FAQs.html&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Run the following to prevent launchd from setting $DISPLAY and creating its socket.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;と説明されており、launchdにDISPLAYとsocketを勝手に設定されるのを防ぐ目的があるとされている。&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>jupyterlab でKiteにより自動補完をする</title><link href="/jupyterlab-dekiteniyorizi-dong-bu-wan-wosuru.html" rel="alternate"></link><published>2021-03-08T23:51:02+09:00</published><updated>2021-03-08T23:51:02+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-03-08:/jupyterlab-dekiteniyorizi-dong-bu-wan-wosuru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;jupyterlab にkiteをインストールしてできるようになること&lt;/h1&gt;
 &lt;p&gt;以下のようにimportしたライブラリを使うときにも候補が出て補完できる&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="images/2021-03-08-23-49-06.png"&gt;&lt;/p&gt;
 &lt;h1&gt;インストール&lt;/h1&gt;
@@ -395,45 +433,7 @@ coot.pdb&lt;/p&gt;
 &lt;li&gt;スライド左右方向: 後側の断面を移動&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;ソース&lt;/p&gt;
-&lt;p&gt;&lt;img alt="マウス操作" src="https://yoshitakamo.github.io/pymol-book/ch02/mouse.html"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="pymol"></category></entry><entry><title>macでxmgrace</title><link href="/macdexmgrace.html" rel="alternate"></link><published>2021-01-21T16:54:11+09:00</published><updated>2021-01-21T16:54:11+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-21:/macdexmgrace.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;環境&lt;/h1&gt;
-&lt;p&gt;&lt;img alt="" src="images/2021-01-04-23-14-05.png"&gt;&lt;/p&gt;
-&lt;h1&gt;Xquartzのインストール&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew cask install xquartz&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h1&gt;xmgraceのインストール&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;brew install grace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h1&gt;Xmgraceの起動&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;launchctl load -w /Library/LaunchAgents/org.macosforge.xquartz.startx.plist&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;を実行後再起動し&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;xmgrace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;で再起動&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ソース&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;xmgraceとコマンドを打ってもXquarzが起動せず&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Can&amp;#39;t open display Failed initializing GUI, exiting&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;というエラーが出ており、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DISPLAY=:0.0 xmgrace&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;と変数DISPLAYを指定しても変わらなかった。&lt;/p&gt;
-&lt;p&gt;対処法を調べていたらこの投稿がヒットし、下のような解決策が見つかった。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Reddit" src="https://www.reddit.com/r/osx/comments/y6e59/xquartz_and_apparently_incorrectly_set_display/"&gt;&lt;/p&gt;
-&lt;p&gt;公式には、&lt;/p&gt;
-&lt;p&gt;&lt;img alt="公式" src="https://www.xquartz.org/FAQs.html"&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Run the following to prevent launchd from setting $DISPLAY and creating its socket.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;と説明されており、launchdにDISPLAYとsocketを勝手に設定されるのを防ぐ目的があるとされている。&lt;/p&gt;</content><category term="ソフト"></category><category term="mac"></category><category term="xmgrace"></category><category term="grace"></category><category term="x11"></category><category term="xwindow"></category><category term="xquartz"></category></entry><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="マウス操作" src="https://yoshitakamo.github.io/pymol-book/ch02/mouse.html"&gt;&lt;/p&gt;</content><category term="ソフト"></category><category term="pymol"></category></entry><entry><title>vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る</title><link href="/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html" rel="alternate"></link><published>2021-01-20T15:48:00+09:00</published><updated>2021-01-20T15:48:00+09:00</updated><author><name>1ut</name></author><id>tag:None,2021-01-20:/vscodetobibtextomarkdowndejian-dan-narepotoyong-markdownhuan-jing-wozuo-ru.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;vscodeとbibtexとmarkdownで簡単なレポート用markdown環境を作る&lt;/h1&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;p&gt;mac、vscode、texliveなどインストールする&lt;/p&gt;
 &lt;h2&gt;インストールするもの&lt;/h2&gt;
