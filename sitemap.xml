@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/</loc>
-<lastmod>2021-03-09T00:04:55-00:00</lastmod>
+<lastmod>2021-03-09T00:09:18-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/vscodeniyorumarkdownwoshi-tsutablognoshu-kifang-memo.html</loc>
+<lastmod>2021-03-09T00:08:59+09:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -180,7 +187,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/category/sohuto.html</loc>
-<lastmod>2021-03-09T00:04:48+09:19</lastmod>
+<lastmod>2021-03-09T00:08:59+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/vscode.html</loc>
+<lastmod>2021-03-09T00:08:59+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/blog.html</loc>
+<lastmod>2021-03-09T00:08:59+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/markdown.html</loc>
+<lastmod>2021-03-09T00:08:59+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -438,21 +466,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://1ut.github.io/tag/vscode.html</loc>
-<lastmod>2021-01-20T15:48:00+09:19</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://1ut.github.io/tag/bibtex.html</loc>
-<lastmod>2021-01-20T15:48:00+09:19</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://1ut.github.io/tag/markdown.html</loc>
 <lastmod>2021-01-20T15:48:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -579,7 +593,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/author/1ut.html</loc>
-<lastmod>2021-03-09T00:04:48+09:19</lastmod>
+<lastmod>2021-03-09T00:08:59+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
