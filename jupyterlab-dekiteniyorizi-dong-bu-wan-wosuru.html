@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>生物化学wiki - perl</title>
+    <title>jupyterlab でKiteにより自動補完をする</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="1ut">
@@ -82,7 +82,7 @@
 						<i class="icon-folder-open icon-large"></i>RNA
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="/category/sohuto.html">
 						<i class="icon-folder-open icon-large"></i>ソフト
 					</a>
@@ -102,12 +102,23 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content">
-        <div class="article">
-                <h1><a href="/perlwanraina-memo.html">perlワンライナー　めも</a></h1>
-                <div class="well small"><footer class="post-info">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to jupyterlab でKiteにより自動補完をする">
+                                        jupyterlab でKiteにより自動補完をする
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2021-02-08T04:35:25+09:00">
-        <i class="icon-calendar"></i>Mon 08 February 2021
+<abbr class="published" title="2021-03-08T23:51:02+09:00">
+        <i class="icon-calendar"></i>Mon 08 March 2021
 </abbr>
 <span class="label">By</span>
 <a href="/author/1ut.html"><i class="icon-user"></i>1ut</a>
@@ -116,15 +127,39 @@
 
 
 <span class="label">Tags</span>
-	<a href="/tag/perl.html"><i class="icon-tag"></i>perl</a>
-	<a href="/tag/wanraina.html"><i class="icon-tag"></i>ワンライナー</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary">
-                        <a class="btn primary xsmall" href="/perlwanraina-memo.html">more ...</a>
-                </div>
-        </div>
-        <hr />
+	<a href="/tag/jupyter-lab.html"><i class="icon-tag"></i>jupyter lab</a>
+	<a href="/tag/jupyterlab.html"><i class="icon-tag"></i>jupyterlab</a>
+	<a href="/tag/kite.html"><i class="icon-tag"></i>kite</a>
+	<a href="/tag/bu-wan.html"><i class="icon-tag"></i>補完</a>
+	<a href="/tag/zi-dong.html"><i class="icon-tag"></i>自動</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>jupyterlab にkiteをインストールしてできるようになること</h1>
+<p>以下のようにimportしたライブラリを使うときにも候補が出て補完できる</p>
+<p><img alt="" src="images/2021-03-08-23-49-06.png"></p>
+<h1>インストール</h1>
+<ol>
+<li>kiteをインストール</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">brew install --cask kite</span>
+</code></pre></div>
 
+<ol>
+<li>jupyterlabの拡張機能で@kiteco/jupyterlab-kiteをインストール</li>
+</ol>
+<p>kiteで検索したら出てくる</p>
+<ol>
+<li>
+<p>jupyterlab-kiteのインストール</p>
+</li>
+<li>
+<p>jupyterlab 3.0.xの場合</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">pip install &quot;jupyterlab-kite&gt;=2.0.2&quot;</span>
+</code></pre></div>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
         </div><!--/span-->
 
                 <div class="span3 well sidebar-nav" id="sidebar">

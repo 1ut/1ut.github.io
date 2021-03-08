@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/</loc>
-<lastmod>2021-03-01T22:48:02-00:00</lastmod>
+<lastmod>2021-03-08T23:51:27-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/jupyterlab-dekiteniyorizi-dong-bu-wan-wosuru.html</loc>
+<lastmod>2021-03-08T23:51:02+09:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -173,7 +180,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/category/sohuto.html</loc>
-<lastmod>2021-03-01T22:47:38+09:19</lastmod>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/jupyter-lab.html</loc>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/jupyterlab.html</loc>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/kite.html</loc>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/bu-wan.html</loc>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/zi-dong.html</loc>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -537,7 +579,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/author/1ut.html</loc>
-<lastmod>2021-03-01T22:47:38+09:19</lastmod>
+<lastmod>2021-03-08T23:51:02+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
