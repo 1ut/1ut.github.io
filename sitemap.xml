@@ -5,8 +5,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/</loc>
-<lastmod>2021-04-19T01:56:45-00:00</lastmod>
+<lastmod>2021-04-19T09:19:41-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/mdshimiyureshiyonniyorubian-xing-tanpakuzhi-noxiang-hu-zuo-yong-jie-xi.html</loc>
+<lastmod>2021-04-19T09:19:35+09:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -187,7 +194,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/category/sohuto.html</loc>
-<lastmod>2021-03-09T00:17:25+09:19</lastmod>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/dong-li-xue-shimiyureshiyon.html</loc>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/mdshimiyureshiyon.html</loc>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/llps.html</loc>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://1ut.github.io/tag/ye-ye-xiang-fen-li.html</loc>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -593,7 +628,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://1ut.github.io/author/1ut.html</loc>
-<lastmod>2021-03-09T00:17:25+09:19</lastmod>
+<lastmod>2021-04-19T09:19:35+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

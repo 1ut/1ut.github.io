@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>生物化学wiki - 操作</title>
+    <title>MDシミュレーションによる変性タンパク質の相互作用解析</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="1ut">
@@ -82,7 +82,7 @@
 						<i class="icon-folder-open icon-large"></i>RNA
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="/category/sohuto.html">
 						<i class="icon-folder-open icon-large"></i>ソフト
 					</a>
@@ -102,12 +102,23 @@
     <div class="container-fluid">
       <div class="row">
         <div class="span9" id="content">
-        <div class="article">
-                <h1><a href="/macdeucsf-chimerawoshi-u.html">macでucsf chimeraを使う</a></h1>
-                <div class="well small"><footer class="post-info">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to MDシミュレーションによる変性タンパク質の相互作用解析">
+                                        MDシミュレーションによる変性タンパク質の相互作用解析
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2021-03-09T00:17:25+09:00">
-        <i class="icon-calendar"></i>Tue 09 March 2021
+<abbr class="published" title="2021-04-19T09:19:35+09:00">
+        <i class="icon-calendar"></i>Mon 19 April 2021
 </abbr>
 <span class="label">By</span>
 <a href="/author/1ut.html"><i class="icon-user"></i>1ut</a>
@@ -116,19 +127,134 @@
 
 
 <span class="label">Tags</span>
-	<a href="/tag/mac.html"><i class="icon-tag"></i>mac</a>
-	<a href="/tag/chimera.html"><i class="icon-tag"></i>chimera</a>
-	<a href="/tag/cao-zuo.html"><i class="icon-tag"></i>操作</a>
-	<a href="/tag/zumu.html"><i class="icon-tag"></i>ズーム</a>
-	<a href="/tag/kuo-da.html"><i class="icon-tag"></i>拡大</a>
-	<a href="/tag/suo-xiao.html"><i class="icon-tag"></i>縮小</a>
-</footer><!-- /.post-info --></div>
-                <div class="summary">
-                        <a class="btn primary xsmall" href="/macdeucsf-chimerawoshi-u.html">more ...</a>
-                </div>
-        </div>
-        <hr />
-
+	<a href="/tag/dong-li-xue-shimiyureshiyon.html"><i class="icon-tag"></i>動力学シミュレーション</a>
+	<a href="/tag/mdshimiyureshiyon.html"><i class="icon-tag"></i>MDシミュレーション</a>
+	<a href="/tag/llps.html"><i class="icon-tag"></i>LLPS</a>
+	<a href="/tag/ye-ye-xiang-fen-li.html"><i class="icon-tag"></i>液-液相分離</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>MDシミュレーションによる変性タンパク質の相互作用解析</h1>
+<p>https://pubs.acs.org/doi/10.1021/acs.jpcb.0c06288</p>
+<h2>概要</h2>
+<ul>
+<li>タンパク質中の変性領域がLLPSの足場になっている</li>
+<li>足場となるタンパク質のアミノ戦配列がどのようにphase separationを起こすのかまだわかっていない</li>
+<li>phase separationにおけるモデル分子であるN末端のDEAD-boxヘリカーゼ4（NDDX4）についてexplicit-solventシミュレーションを行った</li>
+<li>NDDX4について単分子レベルでcomformational ensembleを決定し、分割統治的な手法によって他のタンパク質の高濃度でのシミュレーションに基づいて分子間相互作用が本当の凝集ぶつをmimickしているか調べた
+めも: NDDXは236残基からなるタンパク質のN末端</li>
+<li>NMRおよび変異解析の結果と一致した詳細データを得て、アルギニンや芳香族の残基が縮合に関わっていることを示唆した</li>
+</ul>
+<h1>イントロ</h1>
+<ul>
+<li>phase separationでの変性領域の重要性</li>
+</ul>
+<p>NMRでLLPS時にも構造のflexibilityが保存されていることがわかっている。また、LLPSは変性領域間での瞬間的な多価的な相互作用(多数の弱い相互作用の重なり)によって維持されている</p>
+<p>Furthermore, pioneering NMR studies indicate that this conformational flexibility is preserved even upon LLPS and that the condensed phase is stabilized by a dynamical network of transient multivalent interactions.(14,15) </p>
+<p>ポリマー理論によりアミノ酸の荷電の分布によって相分離の起こる分子が説明されてきた</p>
+<p>Particularly, polymer theory has been used to rationalize how the patterning of charged residues in the sequence affects both the conformational ensemble of isolated proteins and their phase separation properties.(18−20)</p>
+<p>芳香族アミノ酸または側鎖が大きく不飽和であるアミノ酸がLLPSの鍵になっておりpi-stacking相互作用により説明されてきた</p>
+<p>Furthermore, several evidences indicate that amino acids with aromatic (Phe, Tyr) or large-sized, unsaturated side-chains (Arg, Gln) are key determinants of in vivo and in vitro LLPS,(10,14,17,21−24) and π–π or cation−π interactions have been invoked to rationalize these observations.(25)</p>
+<p>LLPSのdriving forceの解明にはMDシミュレーションが使われてきた。</p>
+<p>1残基１ビーズの粗視化モデルは</p>
+<ul>
+<li>相分離系のcoexistence curvesの決定</li>
+<li>LLPSにおけるリン酸化の働きの説明</li>
+<li>単分子のconformational ensembleとphasingの間の相関の調査</li>
+</ul>
+<p>に使われてきた。</p>
+<p>Notably, coarse-grained (CG) models with a one-bead-per-residue resolution have been successfully applied for determining coexistence curves of model phase-separating systems,(26−28) for rationalizing the role of phosphorylation on LLPS,(29) and for investigating the correlation between single-molecule conformational ensembles and phase behavior.(30)</p>
+<p>原子レベルでのシミュレーションは計算量的な制約から非常に限られている</p>
+<p>Conversely, the contribution of atomistic simulations to this field has been limited(15,24,34−37)</p>
+<p>さらにIDRのconformational propertyの再現についての言説を見るとforce fieldの正確性に欠ける</p>
+<p>Furthermore, the accuracy of atomistic force fields in this context has yet to be carefully assessed, considering the debate on their capability of correctly reproducing the conformational properties of IDRs/IDPs.(38−40)</p>
+<p>この論文では
+* 分割統治的な手法
+* IDP解析に有効だと確かめられた最新のforce field
+を用いてexplicit-solventの原子シミュレーションをNDDX4などのphasing分子について行った</p>
+<h1>メソッド</h1>
+<h2>2.1</h2>
+<ul>
+<li>
+<p>ソフトウェア: Gromacs</p>
+</li>
+<li>
+<p>force field: amber99sb-disp</p>
+</li>
+<li>
+<p>trajectoryは　v-rescale(43) と Parrinello–Rahman(44) schemes を用いて NPT ensemble (T = 300 K, P = 1 atm) の系で作られた</p>
+</li>
+</ul>
+<p>注 NpT ensembleはisothermal–isobaric ensemble（等温等圧集団）のこと</p>
+<ul>
+<li>NDDX4の最初の状態はBradyにより報告された配列をもとにTRaDES-2により生成された</li>
+</ul>
+<p>Initial configurations of NDDX4 were generated with TRaDES-2 software(45,46) by using the sequence reported by Brady et al.(14)</p>
+<ul>
+<li>タンパク質分子は2290nm3の斜方十二面体、300000原子に溶解された</li>
+</ul>
+<p>Protein molecules were solvated in a rhombic dodecahedron box with a volume of ∼2290 nm3, for a total of approximately 300000 atoms. </p>
+<ul>
+<li>0.1M NaClにより電荷は中和（?）された</li>
+</ul>
+<p>The charge of the system was neutralized with 0.1 M NaCl.</p>
+<ul>
+<li>周期的な境界条件が適用され、1nmまでの範囲でparticle mesh Ewald algorithmが適用されて静電相互作用が計算され、ファンデルワールス力は1nmでcutoffされて計算された。</li>
+</ul>
+<p>Periodic boundary conditions were applied, and long-range electrostatic interactions were evaluated by using the particle mesh Ewald algorithm(47) with a cutoff of 1 nm for the real space interactions, while van der Waals interactions were computed by using a cutoff distance of 1 nm</p>
+<ul>
+<li>LINCS を使用してすべての結合長を制限した。</li>
+</ul>
+<p>All bond lengths were constrained by using LINCS,(48) </p>
+<ul>
+<li>水素分子は高周波のbond-angle vibrationを取り除くためにvirtual sites(?)に置換された。これにより4fsのtime stepで運動方程式の統合を行うことが可能になった。(計算量的な制約？)</li>
+</ul>
+<p>hydrogen atoms were substituted by virtual sites to remove their high-frequency bond-angle vibration, allowing us to use a time step of 4 fs for the integration of the equations of motion.(49)</p>
+<ul>
+<li>?</li>
+</ul>
+<p>Each replica was run for 1 μs for a cumulated simulation time of 10 μs.</p>
+<ul>
+<li>10psごとにタンパク質の状態は保存され、最初の100nsは解析からのぞいた</li>
+</ul>
+<p>Configurations of the protein were saved every 10 ps, and the first 100 ns of each replica was discarded from the analysis.</p>
+<ul>
+<li>gmx gyrate と HullRad softwareによりNDDX4の回転角（Rgyr）と流体力学的角度 (Rhyd) が計算された.</li>
+</ul>
+<p>The radius of gyration (Rgyr) and the hydrodynamic radius (Rhyd) of NDDX4 were computed with the tool gmx gyrate and the HullRad software,(50)</p>
+<ul>
+<li>分子間の接触の確率（contact probability）は、重い原子（H以外？）間の最短距離が0.5nm以下のの時に計算した。ただしペプチド結合４個ぶん以下の距離に位置するアミノ酸ペアは計算からのぞいた。</li>
+</ul>
+<p>Intramolecular contact probabilities were evaluated considering a cutoff of 0.5 nm on the minimum distance between the heavy atoms of pairs of residues (Figure S12), excluding amino acids closer than four peptide bonds from the calculation</p>
+<ul>
+<li>各残基(i)におけるP_loc(i)の値は[i-3, i+3]の7残基のrolling window（?）のcontact probabilityを計算し平均することにより得た。</li>
+</ul>
+<p>The Ploc(i) variable for each residue i was computed by locally averaging the intramolecular contact probabilities of the residues by using a rolling window of seven residues in the interval [i – 3, i + 3].</p>
+<ul>
+<li>11個の残基のmoving window（?）を解析することによって電荷を持つ領域およびArgやPheに富んだ領域が定義された</li>
+</ul>
+<p>The definition of the charged blocks of amino acids and of regions rich in Arg and Phe was performed by analyzing the sequence with a moving window of 11 residues in the interval [i – 5, i + 5] (Figure S13).</p>
+<ul>
+<li>gromacsのdo_dsspにより計算されたDSSPアルゴリズム(水素結合推定アルゴリズム)により二次構造の情報が推定された。</li>
+</ul>
+<p>The DSSP algorithm(51) was employed to estimate the secondary structure propensities from MD simulations via the interface provided by the gmx do_dssp tool.</p>
+<h2>2.2</h2>
+<p>12残基のExtended structures(?)はambertoolのleapで生成された</p>
+<p>Extended structures of the 12-residue long peptides were generated by using the LEaP program included in AmberTools16.(52) </p>
+<p>末端の塩基（何を指す？前の12塩基？）の電荷による人為的な影響を防ぐために、ペプチド末端はACEとNMEグループによりキャップされた</p>
+<p>Termini of the peptides were capped by using ACE and NME groups to avoid artificial effects introduced by the charges of the terminal residues</p>
+<ul>
+<li>各レプリカ（シミュレーション単位）における初期状態はgromacsのinsert-moleculesというツールによりランダムに挿入された</li>
+</ul>
+<p>Initial configurations for each replica were generated by inserting the peptides in random positions and orientations in a rhombic dodecahedron box with a volume of ∼145 nm3 by using the gmx insert-molecules tool available in GROMACS 2018.3.</p>
+<ul>
+<li>Flag1... アルギニンをリジンに置換したもの　Flag2...フェニルアラニンをアラニンに置換したもの</li>
+</ul>
+<p>For mutants of Frag1 and Frag2 where arginine and phenylalanine residues were mutated respectively to lysine and alanine, mutations correspond to R133K, R135K, and F137A in Frag2 and R150K, F153A, R154K, R157K, and F160A in Frag1 according to NDDX4 sequence numbering. </p>
+<ul>
+<li></li>
+</ul>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
         </div><!--/span-->
 
                 <div class="span3 well sidebar-nav" id="sidebar">
